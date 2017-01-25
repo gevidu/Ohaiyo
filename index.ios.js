@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import { CurrentTime } from './src/Time';
+import { Weather } from './src/Weather';
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
 
@@ -15,16 +16,9 @@ export default class Ohaiyo extends Component {
     return (
       <View style={styles.container}>
       <CurrentTime />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View>
+        <Weather />
+      </View>
       </View>
     );
   }

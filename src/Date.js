@@ -17,13 +17,13 @@ export class CurrentTime extends Component {
   }
 
   componentDidMount() {
-    this.updateClock = setInterval(
-      () => this.updateTime(),
-      500
+    this.mountAndUpdate = setInterval(
+      () => this.updateDate(),
+      180000
     );
   }
 
-  updateTime() {
+  updateDate() {
     this.setState({
       date: new Date()
     });
@@ -32,7 +32,9 @@ export class CurrentTime extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.currentTime}>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</Text>
+        <Text></Text>
+        <Text></Text>
+        <Text></Text>
       </View>
     );
   }
