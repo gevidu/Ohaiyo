@@ -1,5 +1,4 @@
 'use strict';
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -7,11 +6,15 @@ import {
   Text,
   View
 } from 'react-native';
+import { CurrentTime } from './src/Time';
+const ScrollableTabView = require('react-native-scrollable-tab-view');
+
 
 export default class Ohaiyo extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <CurrentTime />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
