@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ActivityIndicator,
   DeviceEventEmitter 
 } from 'react-native';
 
@@ -16,7 +17,8 @@ export class Weather extends Component {
 			lon: '',
 			weatherSearch: '',
 			skyConditions: '',
-			temp: ''
+			temp: '',
+			isLoading: true
 		}
 	}
 
@@ -32,14 +34,14 @@ componentDidMount() {
         // Creates weather search query
     		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid=8da0bfe263e0d6cdea671f4b23e662bc';
     		this.setState({weatherSearch});
-    		console.log(this.state.weatherSearch);
 		    fetch(this.state.weatherSearch, {
 		    	'headers': {'Accept': 'application/json'}
 		    })
 				.then(res  => res.json())
 				.then(res => this.setState({
+					isLoading: false,
 					skyConditions: res.weather[0].main,
-					temp: res.main.temp
+					temp: res.main.temp + '°'
 				}))
 				// res.weather[0].main -- sky conditions for image
 				// res.main.temp       -- temperature
@@ -52,14 +54,18 @@ componentDidMount() {
 
 
   render() {
+  	var spinner = this.state.isLoading ?
+  		( <ActivityIndicator
+      	size='large'/> ) :
+  		(<View>
+  			<Text style={styles.title}> {this.state.skyConditions} </Text>
+  			<Text>{this.state.temp}</Text>
+  		</View> )
 
     return (
-<View>
-        <Text>
-          <Text style={styles.title}> {this.state.skyConditions} </Text>
-        </Text>
-        <Text>{this.state.temp}°</Text>
-      </View>
+			<View>
+				{spinner}
+    	</View>
     );
   }
 };
