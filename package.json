@@ -20,6 +20,8 @@
     "react-test-renderer": "15.4.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testRegex": ".*-test.js",
+    "testEnvironment": "node"
   }
 }

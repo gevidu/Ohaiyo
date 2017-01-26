@@ -31,9 +31,10 @@ componentDidMount() {
         //gives longitude variable definition
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
-        // Creates weather search query
+        // Creates weather search query from coords
     		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid=8da0bfe263e0d6cdea671f4b23e662bc';
     		this.setState({weatherSearch});
+				
 		    fetch(this.state.weatherSearch, {
 		    	'headers': {'Accept': 'application/json'}
 		    })
@@ -41,9 +42,9 @@ componentDidMount() {
 				.then(res => this.setState({
 					isLoading: false,
 					skyConditions: res.weather[0].main,
-					temp: res.main.temp + '°'
+					temp: Math.floor(res.main.temp) + '°'
 				}))
-				.catch(err => console.log('fetch error:', err))
+				.catch(err => console.log('weather fetch error:', err))
       },
       (error) => alert(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
@@ -57,7 +58,7 @@ componentDidMount() {
       	size='large'/> ) :
   		(<View>
   			<Text style={styles.title}> {this.state.skyConditions} </Text>
-  			<Text>{this.state.temp}</Text>
+  			<Text style={styles.title}> {this.state.temp} </Text>
   		</View>)
 
     return (
@@ -70,6 +71,8 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   title: {
-    fontWeight: '500',
+  	backgroundColor: 'yellow',
+    fontSize: 54,
+    color: '#ffffff'
   },
 });

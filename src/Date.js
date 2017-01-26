@@ -92,11 +92,28 @@ switch (this.state.date.getMonth()) {
          break;
 }
 
+//adds ordinals to date
+// const th = 'ᵀᴴ'
+// const st = 'st'
+// const rd = 'rd'
+// const nd = 'nd'
+let todaysDate = this.state.date.getDate().toString();
+// if (todaysDate.slice(-1) !== 1 || 2 || 3 ) {
+//     this.state.d = this.state.date.getDate() + th
+// } if (todaysDate.slice(-1) === 1 ) {
+//     this.state.d = this.state.date.getDate() + st
+// } if (todaysDate.slice(-1) === 2 ) {
+//     this.state.d = this.state.date.getDate() + nd
+// } if (todaysDate.slice(-1) === 3 ) {
+//     this.state.d = this.state.date.getDate() + rd
+// } 
+
+
     return (
       <View>
-        <Text style={styles.currentTime}>{this.state.dw}</Text>
-        <Text style={styles.currentTime}>{this.state.m}</Text>
-        <Text style={styles.currentTime}>{this.state.date.getDate()}</Text>
+        <Text style={styles.currentTime}> {this.state.dw} </Text>
+        <Text style={styles.currentTime}> {this.state.m} </Text>
+        <Text style={styles.currentTime}> {this.state.date.getDate()} </Text>
       </View>
     );
   }
@@ -104,7 +121,9 @@ switch (this.state.date.getMonth()) {
 
 const styles = StyleSheet.create({
   currentTime: {
-    fontSize: 36
+    backgroundColor: 'red',
+    fontSize: 36,
+    color: '#ffffff'
   }
 });
 

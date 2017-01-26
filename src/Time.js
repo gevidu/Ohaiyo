@@ -31,7 +31,7 @@ export class CurrentTime extends Component {
 
   render() {
     return (
-      <View>
+      <View style= {styles.timeContainer}>
         <Text style={styles.currentTime}>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</Text>
       </View>
     );
@@ -40,7 +40,14 @@ export class CurrentTime extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
-    fontSize: 36
+    fontSize: 54,
+    color: '#ffffff'
+  },
+  timeContainer: {
+  	flex: 1,
+  	alignItems: 'center',
+  	borderWidth: 1,
+  	borderColor: '#ffffff'
   }
 });
 
