@@ -12,7 +12,7 @@ import {
 export class Weather extends Component {
 	constructor(props) {
 		super(props);
-		this. state = {
+		this.state = {
 			lat: '',
 			lon: '',
 			weatherSearch: '',
@@ -43,9 +43,7 @@ componentDidMount() {
 					skyConditions: res.weather[0].main,
 					temp: res.main.temp + '°'
 				}))
-				// res.weather[0].main -- sky conditions for image
-				// res.main.temp       -- temperature
-				.catch(err => console.log(err))
+				.catch(err => console.log('fetch error:', err))
       },
       (error) => alert(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
@@ -54,17 +52,17 @@ componentDidMount() {
 
 
   render() {
-  	var spinner = this.state.isLoading ?
+  	let weatherIsLoading = this.state.isLoading ?
   		( <ActivityIndicator
       	size='large'/> ) :
   		(<View>
   			<Text style={styles.title}> {this.state.skyConditions} </Text>
   			<Text>{this.state.temp}</Text>
-  		</View> )
+  		</View>)
 
     return (
 			<View>
-				{spinner}
+				{weatherIsLoading}
     	</View>
     );
   }
