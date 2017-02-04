@@ -9,3 +9,18 @@ import {
 } from 'react-native';
 
 
+export class LeaveBy extends Component {
+	constructor(props) {
+		super(props);
+		
+	}
+
+	render() {
+		return (
+			<View>
+				<Text>Leave By</Text>
+				<Text>~*~Time~*~</Text>
+			</View>
+		)
+	}
+}

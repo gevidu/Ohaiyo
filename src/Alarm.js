@@ -13,7 +13,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  DatePickerIOS
 } from 'react-native';
 
 
@@ -43,6 +44,7 @@ export class Alarm extends Component {
 	render() {
 		return(
 			<View>
+
 					<Text> Here is the alarm page! </Text>
 			</View>
 			)

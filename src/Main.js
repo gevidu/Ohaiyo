@@ -10,24 +10,23 @@ import { CurrentTime } from './Time';
 import { Weather } from './Weather';
 import { DateComponent } from './Date';
 import { Alarm } from './Alarm';
-import { Dreampad } from './DreamPad';
+import { DreamPad } from './DreamPad';
+import { LeaveBy } from './LeaveBy';
+
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
 export class Main extends Component {
   render() {
     return (
-    	<ScrollableTabView>
-	      <Dreampad tabLabel = 'Dreams'/>
-	      <View style={styles.container} tabLabel ='Home'>
+    	<ScrollableTabView initialPage={1}>
+	      <DreamPad tabLabel = 'Dreams'/>
+	      <View style={styles.container} tabLabel = 'Home' >
 	      	<CurrentTime />
 	      	<View style={styles.dateWeatherView}>
 	      		<DateComponent />
 	        	<Weather />
 	      	</View>
-	      	<View>
-	      		<Text>Leave By</Text>
-	      		<Text>~*~Time~*~</Text>
-	      	</View>
+						<LeaveBy />
 	      </View>
 	      <Alarm tabLabel='Alarm'/>
       </ScrollableTabView>
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: '#313234',
+    backgroundColor: 'blue',
   },
   welcome: {
     fontSize: 20,

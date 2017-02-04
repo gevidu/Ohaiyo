@@ -1,24 +1,36 @@
-'use strict';
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+   AsyncStorage,
+   AppRegistry,
+   View
+} from 'react-native'
+import AsyncStorageExample from './DreamInput'
 
-export class Dreampad extends Component {
-constructor(props) {
-	super(props);
-	}
+export class DreamPad extends Component {
+   constructor() {
+      super();
+      this.state = {
+         'data': '',
+      }
+   }
 
-	render() {
-		return(
-			<View>
-				<Text> This is the Dreampad! </Text>
-			</View>
-		)
-	}
+   componentDidMount = () => {
+      AsyncStorage.getItem('data').then((value) => {
+         this.setState({'data': value});
+      });
+   }
 
+   setData = (value) => {
+      AsyncStorage.setItem('data', value);
+      this.setState({'data': value});
+   }
+
+   render() {
+     return (
+         <AsyncStorageExample
+            data = {this.state.data}
+            setData = {this.setData}
+         />
+      );
+   }
 }
-
