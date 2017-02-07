@@ -18,10 +18,15 @@ const ScrollableTabView = require('react-native-scrollable-tab-view');
 export class Main extends Component {
   render() {
     return (
-    	<ScrollableTabView initialPage={1}>
+    	<View style={styles.timeContainer}>
+	      	<CurrentTime />
+    	<ScrollableTabView 
+    		style={styles.tabView} 
+    		tabBarActiveTextColor={'#ffffff'} 
+    		tabBarInactiveTextColor={'#F3A5A7'}
+    		initialPage={1}>
 	      <DreamPad tabLabel = 'Dreams'/>
 	      <View style={styles.container} tabLabel = 'Home' >
-	      	<CurrentTime />
 	      	<View style={styles.dateWeatherView}>
 	      		<DateComponent />
 	        	<Weather />
@@ -30,6 +35,7 @@ export class Main extends Component {
 	      </View>
 	      <Alarm tabLabel='Alarm'/>
       </ScrollableTabView>
+      </View>
     );
   }
 }
@@ -39,7 +45,14 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#313234',
+  },
+  tabView: {
+  	borderColor: '#ffffff'
+  },
+  timeContainer: {
+		flex: 1,
+		backgroundColor: '#313234'
   },
   welcome: {
     fontSize: 20,

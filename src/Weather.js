@@ -71,7 +71,8 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   title: {
-  	backgroundColor: 'yellow',
+  	// backgroundColor: 'yellow',
+  	opacity: 0.9,
     fontSize: 54,
     color: '#ffffff'
   },

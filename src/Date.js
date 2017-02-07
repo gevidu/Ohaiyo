@@ -121,7 +121,8 @@ let todaysDate = this.state.date.getDate().toString();
 
 const styles = StyleSheet.create({
   currentTime: {
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
+    opacity: 0.9,
     fontSize: 36,
     color: '#ffffff'
   }

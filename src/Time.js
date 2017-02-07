@@ -40,11 +40,14 @@ export class CurrentTime extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
+		padding: 10,
+		paddingTop: 2,
     fontSize: 54,
     color: '#ffffff'
   },
   timeContainer: {
-  	flex: 1,
+  	flex: .1,
+  	opacity: 0.9,
   	alignItems: 'center',
   	borderWidth: 1,
   	borderColor: '#ffffff'
