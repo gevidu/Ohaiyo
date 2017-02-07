@@ -36,15 +36,11 @@ export class DreamPad extends Component {
 	// }
 
    render() {
-   	// while (this.state.i < this.state.dreams.length, this.state.i++) {
-   	// }
-
      return (
      	<View style={styles.container}>
          <AsyncStorageExample
             data = {this.state.data}
             setData = {this.setData}
-            onClick = {this.showText.bind(this)}
          />
         </View>
       );
