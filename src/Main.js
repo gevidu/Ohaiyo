@@ -12,7 +12,7 @@ import { DateComponent } from './Date';
 import { Alarm } from './Alarm';
 import { DreamPad } from './DreamPad';
 import { LeaveBy } from './LeaveBy';
-
+import { DreamStore } from './DreamStore';
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
 export class Main extends Component {
@@ -25,7 +25,7 @@ export class Main extends Component {
     		tabBarActiveTextColor={'#ffffff'} 
     		tabBarInactiveTextColor={'#F3A5A7'}
     		initialPage={1}>
-	      <DreamPad tabLabel = 'Dreams'/>
+	      <DreamStore tabLabel = 'Dreams'/>
 	      <View style={styles.container} tabLabel = 'Home' >
 	      	<View style={styles.dateWeatherView}>
 	      		<DateComponent />

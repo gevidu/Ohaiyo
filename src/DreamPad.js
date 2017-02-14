@@ -13,7 +13,7 @@ export class DreamPad extends Component {
       this.state = {
          'data': '',
          'i': 0,
-         'dreamArray': []
+         'dreamArray': ['HEY', 'HI', 'WASSUP']
       }
    }
    componentDidMount = () => {
@@ -21,6 +21,7 @@ export class DreamPad extends Component {
          this.setState({'data': value});
       });
    }
+   
    setData = (value) => {
       AsyncStorage.setItem('data', value);
       this.setState({'data': value});
