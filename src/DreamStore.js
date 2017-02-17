@@ -16,7 +16,7 @@ export class DreamStore extends Component {
   constructor(props) {
     super(props);
     var dataSource = new ListView.DataSource({rowHasChanged:(r1,r2) => r1.guid != r2.guid});
-    var dreamArray = [];
+    var dreamArray = ['HEY2', 'HI2', 'WASSUP2'];
     this.state = {
     	'data': '',
       'i': 0,
@@ -35,11 +35,13 @@ export class DreamStore extends Component {
   );
 }
 
+
 componentDidMount = () => {
       AsyncStorage.getItem('data').then((value) => {
          this.setState({'data': value});
       });
    }
+   
    setData = (value) => {
       AsyncStorage.setItem('data', value);
       this.setState({'data': value});

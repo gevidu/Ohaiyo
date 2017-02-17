@@ -25,6 +25,8 @@ export class DreamPad extends Component {
    setData = (value) => {
       AsyncStorage.setItem('data', value);
       this.setState({'data': value});
+
+      AsyncStorage.setItem('dreamArray');
    }
 
 	showText() {
