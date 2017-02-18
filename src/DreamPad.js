@@ -3,9 +3,10 @@ import {
    AsyncStorage,
    AppRegistry,
    View,
-   StyleSheet
+   StyleSheet,
+   Text
 } from 'react-native';
-import AsyncStorageExample from './DreamInput';
+import DreamInput from './DreamInput';
 
 export class DreamPad extends Component {
    constructor() {
@@ -25,23 +26,24 @@ export class DreamPad extends Component {
    setData = (value) => {
       AsyncStorage.setItem('data', value);
       this.setState({'data': value});
-
-      AsyncStorage.setItem('dreamArray');
    }
 
-	showText() {
+	// showText() {
 
-	}
-
-	// createList() {
-	// 	let textPreview = this.state.data.substring(0, 8);
-	// 	this.state.dreamArray.push(this.state.data);
 	// }
 
+	// createList() {
+ //    this.state.dreamArray.push(this.state.data);
+ //  }
+
    render() {
+		let textPreview = this.state.data.substring(0, 10);
+    textPreview = textPreview + '...';
+
      return (
      	<View style={styles.container}>
-         <AsyncStorageExample
+         <Text>{textPreview}</Text>
+         <DreamInput
             data = {this.state.data}
             setData = {this.setData}
          />

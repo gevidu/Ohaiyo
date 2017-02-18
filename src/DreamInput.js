@@ -7,11 +7,11 @@ import {
    StyleSheet
 } from 'react-native';
 
-export default AsyncStorageExample = (props) => {
+export default DreamInput = (props) => {
    return (
       <View style = {styles.container}>
          <TextInput
-         		multiline= {true}
+         	multiline= {true}
             style = {styles.textInput}
             autoCapitalize = 'none'
             onChangeText = {props.setData}
