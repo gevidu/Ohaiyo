@@ -30,67 +30,68 @@ export class DateComponent extends Component {
   }
 
   render() {
+    
     switch (this.state.date.getDay()) {
-    case 0:
-        this.state.dw = "Sunday";
-        break;
-    case 1:
-        this.state.dw = "Monday";
-        break;
-    case 2:
-        this.state.dw = "Tuesday";
-        break;
-    case 3:
-        this.state.dw = "Wednesday";
-        break;
-    case 4:
-        this.state.dw = "Thursday";
-        break;
-    case 5:
-        this.state.dw = "Friday";
-        break;
-    case 6:
-        this.state.dw = "Saturday";
-}
+      case 0:
+          this.state.dw = "Sunday";
+          break;
+      case 1:
+          this.state.dw = "Monday";
+          break;
+      case 2:
+          this.state.dw = "Tuesday";
+          break;
+      case 3:
+          this.state.dw = "Wednesday";
+          break;
+      case 4:
+          this.state.dw = "Thursday";
+          break;
+      case 5:
+          this.state.dw = "Friday";
+          break;
+      case 6:
+          this.state.dw = "Saturday";
+    }
 
-switch (this.state.date.getMonth()) {
-    case 0:
-        this.state.m = "January";
-        break;
-    case 1:
-        this.state.m = "February";
-        break;
-    case 2:
-        this.state.m = "March";
-        break;
-    case 3:
-        this.state.m = "April";
-        break;
-    case 4:
-        this.state.m = "May";
-        break;
-    case 5:
-        this.state.m = "June";
-        break;
-    case 6:
-        this.state.m = "July";
-        break;
-    case 7:
-        this.state.m = "August";
-        break;
-    case 8:
-        this.state.m = "September";
-        break;
-     case 9:
-         this.state.m = "October";
-         break;
-     case 10:
-        this.state.m = "November";
-        break;
-     case 11:
-         this.state.m = "December";
-         break;
-}
+    switch (this.state.date.getMonth()) {
+      case 0:
+          this.state.m = "January";
+          break;
+      case 1:
+          this.state.m = "February";
+          break;
+      case 2:
+          this.state.m = "March";
+          break;
+      case 3:
+          this.state.m = "April";
+          break;
+      case 4:
+          this.state.m = "May";
+          break;
+      case 5:
+          this.state.m = "June";
+          break;
+      case 6:
+          this.state.m = "July";
+          break;
+      case 7:
+          this.state.m = "August";
+          break;
+      case 8:
+          this.state.m = "September";
+          break;
+       case 9:
+           this.state.m = "October";
+           break;
+       case 10:
+          this.state.m = "November";
+          break;
+       case 11:
+           this.state.m = "December";
+           break;
+    }
 
 //adds ordinals to date
 // const th = 'ᵀᴴ'
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     opacity: 0.9,
     fontSize: 36,
-    color: '#ffffff'
+    // color: '#ffffff'
   }
 });
 

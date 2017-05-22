@@ -6,7 +6,6 @@ import {
    StyleSheet,
    Text
 } from 'react-native';
-import DreamInput from './DreamInput';
 
 export class DreamPad extends Component {
    constructor() {

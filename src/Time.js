@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
 		padding: 10,
 		paddingTop: 2,
     fontSize: 54,
-    color: '#ffffff'
+    // color: '#ffffff'
   },
   timeContainer: {
   	flex: .1,
   	opacity: 0.9,
   	alignItems: 'center',
   	borderWidth: 1,
-  	borderColor: '#ffffff'
+  	// borderColor: '#ffffff'
   }
 });
 

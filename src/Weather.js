@@ -74,6 +74,6 @@ var styles = StyleSheet.create({
   	// backgroundColor: 'yellow',
   	opacity: 0.9,
     fontSize: 54,
-    color: '#ffffff'
+    // color: '#ffffff'
   },
 });
