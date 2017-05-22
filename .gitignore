@@ -42,7 +42,7 @@ android/app/libs
 *.keystore
 
 # other
-./src/api/configs.js
+/src/api/configs.js
 
 # fastlane
 #
