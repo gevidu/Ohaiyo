@@ -14,6 +14,7 @@ import {
   Text,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   DatePickerIOS
 } from 'react-native';
 
@@ -23,29 +24,61 @@ export class Alarm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			wantedWakeup: '',
-			actualWakeup: '',
-			snoozeAllocation: '',
-			fallAsleepTime: '',
-			cycles: '',
-			cycleAmount: 90,
-			alarmSound: ''
+      possibleWakeUpTimes: []
 		 }
 	}
 
-	componentDidMount() {
-		// Requests for wakeup time
-		// time spinner pops up
-		// input desired time
-	}
+	sleepStart(){
+		let hours = new Date().getHours();
+		let minutes = new Date().getMinutes();
+		let sleepCycles = 0;
+		let wakeupArray = [];
 
+		// takes ~14 minutes to fall asleep
+    minutes += 14;
+		hours += minutes >= 60;
+		minutes %= 60;
+		hours %= 12;
+    
+    // calculating for sleep cycles, each 90 minutes and ideally happens 6 times
+    while (sleepCycles < 6) {
+    	sleepCycles++
+      hours += 1;
+    	minutes += 30;
+      hours += minutes >=60;
+			minutes %= 60;
+			hours %= 12;
+				
+			if (minutes < 10) {
+				minutes = ('0' + minutes).slice(-2);
+			};
 
+			if (hours == 0) {
+				hours = 12;
+			};
+
+			wakeupArray.push(hours + ':' + minutes);
+		};	
+		
+		this.setState({
+			possibleWakeUpTimes: wakeupArray
+		});
+}
 
 	render() {
 		return(
 			<View>
-
-					<Text> Here is the alarm page! </Text>
+					<Text> Headed to bed? </Text>
+					<TouchableOpacity onPress={() => {this.sleepStart()}}>
+						<Text>Sleep Times</Text>
+						
+					</TouchableOpacity>
+				<Text>{this.state.possibleWakeUpTimes[0]}</Text>
+				<Text>{this.state.possibleWakeUpTimes[1]}</Text>
+				<Text>{this.state.possibleWakeUpTimes[2]}</Text>
+				<Text>{this.state.possibleWakeUpTimes[3]}</Text>
+				<Text>{this.state.possibleWakeUpTimes[4]}</Text>
+				<Text>{this.state.possibleWakeUpTimes[5]}</Text>
 			</View>
 			)
 	}

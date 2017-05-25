@@ -59,16 +59,7 @@ export default class DreamList extends Component {
   renderRow = (data) => {
     return (
       <View>
-      <Swipeout
-        right={[
-          {
-            text: 'delete',
-            onPress:() => {this.deleteDream(data.key)},
-            style: { backgroundColor: 'red', color: 'white' },
-            className: 'custom-class-2'
-          }
-        ]}
-      >
+
       <View style={ styles.dreamContainer }>
         <Text style={ styles.dreamText }>{ data.text }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
@@ -76,7 +67,7 @@ export default class DreamList extends Component {
           
         </View>
       </View>
-    </Swipeout>
+    
     </View>
     );
   }

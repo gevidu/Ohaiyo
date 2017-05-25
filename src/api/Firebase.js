@@ -6,31 +6,17 @@ import {
   View
 } from 'react-native';
 
-//config file with API ignored for github
-const config = require('./configs');
 const firebase = require("firebase");
-
-firebase.initializeApp(config);
+const configs = require('./configs');
+firebase.initializeApp(configs);
 
 export class FBNotes extends Component {
-constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <View
-        style={ styles.container }>
+      <View style={{flex: 1}}>
         <AddDream />
         <DreamList />
       </View>
     );
   }
 }
- 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});

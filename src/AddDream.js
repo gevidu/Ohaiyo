@@ -26,31 +26,17 @@ export default class AddDream extends Component {
     this.dreamsRef = this.getRef().child('dreams');
   }
 
-  // componentWillMount () {
-  //   this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
-  //   this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
-  // }
-
-  // componentWillUnmount() {
-  //   this.keyboardWillShowSub.remove();
-  //   this.keyboardWillHideSub.remove();
-  // }
-
   getRef() {
     return firebase.database().ref();
   }
 
   submit(){
+
     if (this.state.text) {
       this.dreamsRef.push({
         text: this.state.text,
         date: new Date().toLocaleDateString()
       });
-      
-      Animated.timing(                           
-        this.state.flexHeight,                      
-        {toValue: .075}
-      ).start();    
 
       this.setState({
         placeholder: 'What did you dream about?',
@@ -59,6 +45,13 @@ export default class AddDream extends Component {
         behavior: 'padding',
         pressStatus: false,
       });
+             if (this.state.pressStatus == true) {
+      this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
+      Animated.timing(
+        this.state.flexHeight,
+        {toValue: .075}
+      ).start();    
+    }
     }
   }
 
@@ -71,15 +64,27 @@ export default class AddDream extends Component {
       ).start();    
     }
   }
+
+  // onBlurEvent(){
+  //   if (this.state.pressStatus == true) {
+  //     this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
+  //     Animated.timing(
+  //       this.state.flexHeight,
+  //       {toValue: .075}
+  //     ).start();    
+  //   }
+  // }
+
   render(){
     return(
 
       <Animated.View
       behavior={this.state.behavior}
-      onFocus={this.onFocusEvent.bind(this)}
+      // onBlur={this.onBlurEvent.bind(this)}
       style={ this.state.pressStatus ? [styles.addFocused, {flex: this.state.flexHeight}] : [styles.addUnfocused, {flex: this.state.flexHeight}] }
       >
         <TextInput
+      onFocus={this.onFocusEvent.bind(this)}
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder={this.state.placeholder}
