@@ -64,7 +64,9 @@ export default class DreamList extends Component {
         <Text style={ styles.dreamText }>{ data.text }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
           <Text>{data.date}</Text>
-          
+          <TouchableOpacity style={styles.deleteButton} onPress={() => {this.deleteDream(data.key)}}>
+            <Image style={ styles.Image } source={require('./img/trash.png')} />
+          </TouchableOpacity>
         </View>
       </View>
     
@@ -115,7 +117,11 @@ const styles = StyleSheet.create({
     color: '#252839',
     fontSize: 16
   },
-  deleteButtonWrapper: {
+  Image: {
+    opacity: 0.6,
+    tintColor: '#313234'
+  },
+  deleteButton: {
     marginLeft: 12
   },
   loading: {
