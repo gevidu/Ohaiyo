@@ -31,7 +31,6 @@ export default class AddDream extends Component {
   }
 
   submit(){
-
     if (this.state.text) {
       this.dreamsRef.push({
         text: this.state.text,
@@ -45,13 +44,14 @@ export default class AddDream extends Component {
         behavior: 'padding',
         pressStatus: false,
       });
-             if (this.state.pressStatus == true) {
-      this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
-      Animated.timing(
-        this.state.flexHeight,
-        {toValue: .075}
-      ).start();    
-    }
+    
+      if (this.state.pressStatus == true) {
+        this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
+        Animated.timing(
+          this.state.flexHeight,
+          {toValue: .075}
+        ).start();    
+      }
     }
   }
 
@@ -65,26 +65,12 @@ export default class AddDream extends Component {
     }
   }
 
-  // onBlurEvent(){
-  //   if (this.state.pressStatus == true) {
-  //     this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
-  //     Animated.timing(
-  //       this.state.flexHeight,
-  //       {toValue: .075}
-  //     ).start();    
-  //   }
-  // }
-
   render(){
     return(
 
-      <Animated.View
-      behavior={this.state.behavior}
-      // onBlur={this.onBlurEvent.bind(this)}
-      style={ this.state.pressStatus ? [styles.addFocused, {flex: this.state.flexHeight}] : [styles.addUnfocused, {flex: this.state.flexHeight}] }
-      >
+      <Animated.View style={ this.state.pressStatus ? [styles.addFocused, {flex: this.state.flexHeight}] : [styles.addUnfocused, {flex: this.state.flexHeight}] }>
         <TextInput
-      onFocus={this.onFocusEvent.bind(this)}
+          onFocus={this.onFocusEvent.bind(this)}
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder={this.state.placeholder}

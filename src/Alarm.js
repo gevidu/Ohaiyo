@@ -1,24 +1,11 @@
-// Get time and add 14 minutes to fall asleep
-// Get desidered wakeup time
-// look for closest point where user is in lightest sleep near desired wake up time
-// use microphone to track rustling during sleep to analyze stages
-// show allocated snooze(s) between wake up time and 'get out of bed time' to not enter deep sleep again
-// display traffic time and correlation with wake up time and 'get out of bed time'
-
-
 'use strict';
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
   TouchableOpacity,
-  DatePickerIOS
 } from 'react-native';
-
-
 
 export class Alarm extends Component {
 	constructor(props) {
@@ -40,24 +27,34 @@ export class Alarm extends Component {
 		minutes %= 60;
 		hours %= 12;
     
-    // calculating for sleep cycles, each 90 minutes and ideally happens 6 times
+    // calculating sleep cycles, each 90 minutes and ideally happens 6 times
     while (sleepCycles < 6) {
+
     	sleepCycles++
       hours += 1;
     	minutes += 30;
       hours += minutes >=60;
 			minutes %= 60;
 			hours %= 12;
-				
+
 			if (minutes < 10) {
 				minutes = ('0' + minutes).slice(-2);
 			};
-
+			if (minutes > 10) {
+				minutes = minutes
+			}; 
 			if (hours == 0) {
 				hours = 12;
 			};
-
+			
 			wakeupArray.push(hours + ':' + minutes);
+
+			if (typeof minutes === 'string') {
+				minutes = Number(minutes.substr(1));
+    	};
+
+
+
 		};	
 		
 		this.setState({
@@ -68,10 +65,8 @@ export class Alarm extends Component {
 	render() {
 		return(
 			<View>
-					<Text> Headed to bed? </Text>
 					<TouchableOpacity onPress={() => {this.sleepStart()}}>
-						<Text>Sleep Times</Text>
-						
+						<Text style={styles.button} >Get Sleep Times</Text>
 					</TouchableOpacity>
 				<Text>{this.state.possibleWakeUpTimes[0]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[1]}</Text>
@@ -83,3 +78,20 @@ export class Alarm extends Component {
 			)
 	}
 }
+
+const styles = StyleSheet.create({
+	button: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 'bold',
+    backgroundColor: '#ffffff',
+    borderColor: '#000000',
+    borderWidth: 1,
+    marginLeft: 8,
+    marginRight: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    color: '#252839',
+    borderRadius: 4
+  }
+})

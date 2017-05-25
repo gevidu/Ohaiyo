@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { Alarm } from './Alarm';
 
 export class MorningUpdate extends Component {
 	constructor(props) {
@@ -15,7 +16,6 @@ export class MorningUpdate extends Component {
 		return (
 			<View>
 				<Text>Morning Update</Text>
-				<Text>Hello jskdljdsljdsa</Text>
 			</View>
 		)
 	}
