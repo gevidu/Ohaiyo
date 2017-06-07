@@ -26,21 +26,11 @@ export class Main extends Component {
     }
   }
 
-  // handleChangeTab() {
-  //   this.state.i++;
-  //   if (this.state.locked == false && this.state.i/2) {
-  //     this.setState({locked:true});
-  //   } else {
-  //   this.setState({locked: false})
-  //   }
-  // }
-
   render() {
     return (
     	<View style={styles.timeContainer}>
       	<ScrollableTabView 
           // tabBarPosition = 'bottom'
-          // onChangeTab = {this.handleChangeTab.bind(this)}
           locked = {this.state.locked}
       		style={styles.tabView} 
           prerenderingSiblingsNumber={Infinity}
