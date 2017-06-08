@@ -5,7 +5,6 @@ import { CurrentTime } from './Time';
 import { Weather } from './Weather';
 import { DateComponent } from './Date';
 import { Alarm } from './Alarm';
-import { DreamPad } from './DreamPad';
 import { LeaveBy } from './LeaveBy';
 import { MorningUpdate } from './MorningUpdate';
 import { FBNotes } from './api/Firebase';
