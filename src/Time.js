@@ -16,6 +16,7 @@ export class CurrentTime extends Component {
     };
   }
 
+// half a second intervals to make sure it is as close to accurate as possible
   componentDidMount() {
     this.updateClock = setInterval(
       () => this.updateTime(),

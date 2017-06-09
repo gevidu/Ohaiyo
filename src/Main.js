@@ -29,7 +29,7 @@ export class Main extends Component {
     return (
     	<View style={styles.timeContainer}>
       	<ScrollableTabView 
-          // tabBarPosition = 'bottom'
+          tabBarPosition = 'bottom'
           locked = {this.state.locked}
       		style={styles.tabView} 
           prerenderingSiblingsNumber={Infinity}

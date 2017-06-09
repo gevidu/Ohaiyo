@@ -31,6 +31,7 @@ export class DateComponent extends Component {
 
   render() {
     
+    //basic switch cases for day and month
     switch (this.state.date.getDay()) {
       case 0:
           this.state.dw = "Sunday";
@@ -92,24 +93,6 @@ export class DateComponent extends Component {
            this.state.m = "December";
            break;
     }
-
-
-// //adds ordinals to date
-// // const th = 'ᵀᴴ'
-// // const st = 'st'
-// // const rd = 'rd'
-// // const nd = 'nd'
-// let todaysDate = this.state.date.getDate().toString();
-// // if (todaysDate.slice(-1) !== 1 || 2 || 3 ) {
-// //     this.state.d = this.state.date.getDate() + th
-// // } if (todaysDate.slice(-1) === 1 ) {
-// //     this.state.d = this.state.date.getDate() + st
-// // } if (todaysDate.slice(-1) === 2 ) {
-// //     this.state.d = this.state.date.getDate() + nd
-// // } if (todaysDate.slice(-1) === 3 ) {
-// //     this.state.d = this.state.date.getDate() + rd
-// // } 
-
 
     return (
       <View>

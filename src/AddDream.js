@@ -15,7 +15,6 @@ const firebase = require("firebase");
 export default class AddDream extends Component {
   constructor(props) {
     super(props);
-    // this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
     this.state = {
       placeholder: 'What did you dream about?',
       text: '',
@@ -30,7 +29,19 @@ export default class AddDream extends Component {
     return firebase.database().ref();
   }
 
+  onFocusEvent(){
+    // onFocus targets "add dream" tab for expanded text entry and animation effect
+    if (this.state.pressStatus == false) {
+      this.setState({pressStatus: true, placeholder: ''});
+      Animated.timing(
+        this.state.flexHeight,
+        {toValue: 1.375}
+      ).start();    
+    }
+  }
+
   submit(){
+    //sends dream to firebase db, updates state, and triggers animation
     if (this.state.text) {
       this.dreamsRef.push({
         text: this.state.text,
@@ -52,16 +63,6 @@ export default class AddDream extends Component {
           {toValue: .075}
         ).start();    
       }
-    }
-  }
-
-  onFocusEvent(){
-    if (this.state.pressStatus == false) {
-      this.setState({pressStatus: true, placeholder: ''});
-      Animated.timing(
-        this.state.flexHeight,
-        {toValue: 1.375}
-      ).start();    
     }
   }
 

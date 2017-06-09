@@ -25,7 +25,8 @@ export default class DreamList extends Component {
     };
     this.dreamsRef = this.getRef().child('dreams');
   }
-
+  
+  //Connects to firebase database and listen gathers list items 
   getRef() {
     return firebase.database().ref();
   }

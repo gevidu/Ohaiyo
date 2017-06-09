@@ -65,12 +65,14 @@ export class Alarm extends Component {
 					<TouchableOpacity onPress={() => {this.sleepStart()}}>
 						<Text style={styles.button} >Get Sleep Times</Text>
 					</TouchableOpacity>
+			<View>
 				<Text>{this.state.possibleWakeUpTimes[0]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[1]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[2]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[3]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[4]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[5]}</Text>
+				</View>		
 			</View>
 			)
 	}
