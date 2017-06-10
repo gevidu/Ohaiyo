@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
@@ -12,7 +11,9 @@ export class DateComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    	date: new Date()
+    	date:  new Date().getDate(),
+      day:   new Date().toLocaleString('en-US', {weekday: 'long'}),
+      month: new Date().toLocaleString('en-US', {month: 'long'})
     };
   }
 
@@ -23,16 +24,18 @@ export class DateComponent extends Component {
 
   updateDate() {
     this.setState({
-      date: new Date(),
+      date:  new Date().getDate(),
+      day:   new Date().toLocaleString('en-US', {weekday: 'long'}),
+      month: new Date().toLocaleString('en-US', {month: 'long'})
     });
   }
 
   render() {
     return (
       <View>
-        <Text style={styles.currentTime}> {this.state.date.toLocaleString('en-US', {weekday: 'long'})} </Text>
-        <Text style={styles.currentTime}> {this.state.date.toLocaleString('en-US', {month: 'long'})} </Text>
-        <Text style={styles.currentTime}> {this.state.date.getDate()} </Text>
+        <Text style={styles.currentTime}> {this.state.day} </Text>
+        <Text style={styles.currentTime}> {this.state.month} </Text>
+        <Text style={styles.currentTime}> {this.state.date} </Text>
       </View>
     );
   }
