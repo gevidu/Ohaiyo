@@ -29,7 +29,6 @@ export class Alarm extends Component {
     
     // calculating sleep cycles, each 90 minutes and ideally happens 6 times
     while (sleepCycles < 6) {
-
     	sleepCycles++
       hours += 1;
     	minutes += 30;
@@ -80,6 +79,7 @@ export class Alarm extends Component {
 
 const styles = StyleSheet.create({
 	button: {
+		marginTop: 10,
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
