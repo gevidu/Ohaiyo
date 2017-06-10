@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
  // ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * 
 
 
-// export default class TodoList extends Component {
+// export default class AlarmList extends Component {
 //   constructor() {
 //     super();
 //     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 //       snap.forEach((child) => {
 //         items.push({
 //           key: child.key,
-//           text: child.val().text,
+//           time: child.val().text,
 //           complete: child.val().complete
 //         });
 //       });
@@ -137,13 +137,13 @@ const styles = StyleSheet.create({
 //   toggleComplete(bool, key){
 //     firebase.database().ref('alarms/'+key).update({complete: bool});
 //   }
-//   deleteTodo(key){
+//   deleteAlarm(key){
 //     firebase.database().ref('alarms/'+key).set(null);
 //   }
 //   renderRow = (data) => {
 //     return (
-//       <View style={ styles.todo }>
-//         <Text style={ styles.todoText }>{ data.text }</Text>
+//       <View style={ styles.alarm }>
+//         <Text style={ styles.alarmText }>{ data.text }</Text>
 //         <View style={{flexDirection:'row', alignItems: 'center'}}>
 //           <Switch
 //             onValueChange={(value) => this.toggleComplete(!data.complete, data.key)}
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 //             onTintColor="#f2b632"
 //             thumbTintColor="#252839"
 //             value={data.complete} />
-//           <TouchableOpacity style={styles.deleteButtonWrapper} onPress={() => {this.deleteTodo(data.key)}}>
+//           <TouchableOpacity style={styles.deleteButtonWrapper} onPress={() => {this.deleteAlarm(data.key)}}>
 //             <Image source={require('./img/ic_delete_black_24dp_1x.png')} />
 //           </TouchableOpacity>
 //         </View>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 //           enableEmptySections={true}
 //           dataSource={this.state.dataSource}
 //           renderRow={(rowData) => this.renderRow(rowData)}
-//           style={ styles.todoList }
+//           style={ styles.AlarmList }
 //         />
 //       </View>
 //     );
@@ -186,10 +186,10 @@ const styles = StyleSheet.create({
 //   container: {
 //     flex: 1
 //   },
-//   todoList: {
+//   AlarmList: {
 //     flex: 1
 //   },
-//   todo: {
+//   alarm: {
 //     padding: 16,
 //     backgroundColor: '#E7E7E7',
 //     borderBottomWidth: 1,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
 //     flexDirection: 'row',
 //     justifyContent: 'space-between'
 //   },
-//   todoText: {
+//   alarmText: {
 //     flex: 1,
 //     color: '#252839',
 //     fontSize: 16
