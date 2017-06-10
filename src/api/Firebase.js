@@ -10,7 +10,7 @@ const firebase = require("firebase");
 const configs = require('./configs');
 firebase.initializeApp(configs);
 
-export class FBNotes extends Component {
+export class DreamTab extends Component {
   render() {
     return (
       <View style={{flex: 1}}>

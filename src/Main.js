@@ -7,7 +7,7 @@ import { DateComponent } from './Date';
 import { Alarm } from './Alarm';
 import { LeaveBy } from './LeaveBy';
 import { MorningUpdate } from './MorningUpdate';
-import { FBNotes } from './api/Firebase';
+import { DreamTab } from './api/Firebase';
 import {
   AppRegistry,
   StyleSheet,
@@ -20,8 +20,7 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locked: false,
-      i: 1
+      locked: true,
     }
   }
 
@@ -48,7 +47,7 @@ export class Main extends Component {
               <LeaveBy />
             </View>
           </View>
-  	      <FBNotes tab = '3' tabLabel = 'Dreams' />
+  	      <DreamTab tab = '3' tabLabel = 'Dreams' />
         </ScrollableTabView>
       </View>
     );

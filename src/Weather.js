@@ -34,7 +34,7 @@ componentDidMount() {
         // Creates weather search query from coords
     		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid=8da0bfe263e0d6cdea671f4b23e662bc';
     		this.setState({weatherSearch});
-				
+				//makes weather api call
 		    fetch(this.state.weatherSearch, {
 		    	'headers': {'Accept': 'application/json'}
 		    })
@@ -46,20 +46,19 @@ componentDidMount() {
 				}))
 				.catch(err => console.log('weather fetch error:', err))
       },
-      (error) => alert(JSON.stringify(error)),
+      (error) => console.log(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
   }
 
 
   render() {
-  	let weatherIsLoading = this.state.isLoading ?
-  		( <ActivityIndicator
-      	size='large'/> ) :
-  		(<View>
-  			<Text style={styles.title}> {this.state.skyConditions} </Text>
-  			<Text style={styles.title}> {this.state.temp} </Text>
-  		</View>)
+  	let weatherIsLoading = this.state.isLoading ? 
+      ( <ActivityIndicator size='large'/> ) :
+  		( <View>
+  			  <Text style={styles.title}> {this.state.skyConditions} </Text>
+  			  <Text style={styles.title}> {this.state.temp} </Text>
+  		  </View> )
 
     return (
 			<View>

@@ -16,12 +16,9 @@ export class CurrentTime extends Component {
     };
   }
 
-// half a second intervals to make sure it is as close to accurate as possible
+// half a second intervals to make sure it is in sync with true time as possible
   componentDidMount() {
-    this.updateClock = setInterval(
-      () => this.updateTime(),
-      500
-    );
+    setInterval(() => this.updateTime(), 500);
   }
 
   updateTime() {
@@ -43,15 +40,13 @@ const styles = StyleSheet.create({
   currentTime: {
 		padding: 10,
 		paddingTop: 2,
-    fontSize: 54,
-    // color: '#ffffff'
+    fontSize: 54
   },
   timeContainer: {
   	flex: .1,
   	opacity: 0.9,
   	alignItems: 'center',
-  	borderWidth: 1,
-  	// borderColor: '#ffffff'
+  	borderWidth: 1
   }
 });
 

@@ -14,12 +14,9 @@ export class LeaveBy extends Component {
 		super(props);
 		
 	}
-
 	render() {
 		return (
-			<View>
-				<Text>Leave By</Text>
-				<Text>~*~Time~*~</Text>
+			<View>			
 			</View>
 		)
 	}
