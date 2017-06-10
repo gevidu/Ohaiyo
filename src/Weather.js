@@ -25,10 +25,10 @@ export class Weather extends Component {
 componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        //gives latitude variable definition
+        //gives latitude variable definition from phone's possition
         let lat = JSON.stringify(position.coords.latitude);
         this.setState({lat});
-        //gives longitude variable definition
+        //gives longitude variable definition from phone's possition
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates weather search query from coords

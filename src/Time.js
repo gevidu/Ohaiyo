@@ -11,7 +11,7 @@ export class CurrentTime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    	date: new Date()
+    	time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
     };
   }
 
@@ -22,14 +22,14 @@ export class CurrentTime extends Component {
 
   updateTime() {
     this.setState({
-      date: new Date()
+      time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
     });
   }
 
   render() {
     return (
       <View style= {styles.timeContainer}>
-        <Text style={styles.currentTime}>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</Text>
+        <Text style={styles.currentTime}>{this.state.time}</Text>
       </View>
     );
   }
