@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-const firebase = require("firebase");
+const firebase = require('firebase');
 const configs = require('./configs');
 firebase.initializeApp(configs);
 

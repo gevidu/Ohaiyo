@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   DeviceEventEmitter 
 } from 'react-native';
+const appID = require('./api/weatherConfig')
 
 export class Weather extends Component {
 	constructor(props) {
@@ -32,7 +33,7 @@ componentDidMount() {
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates weather search query from coords
-    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid=8da0bfe263e0d6cdea671f4b23e662bc';
+    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid='+ appID;
     		this.setState({weatherSearch});
 				//makes weather api call
 		    fetch(this.state.weatherSearch, {

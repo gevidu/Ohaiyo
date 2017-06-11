@@ -43,6 +43,7 @@ android/app/libs
 
 # other
 /src/api/configs.js
+/src/api/weatherConfig.js
 
 # fastlane
 #
