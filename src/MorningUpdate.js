@@ -15,7 +15,7 @@ export class MorningUpdate extends Component {
 	render() {
 		return (
 			<View>
-				<Text>Morning Update</Text>
+				<Text>~ * ~ * ~ *</Text>
 			</View>
 		)
 	}
