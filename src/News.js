@@ -20,10 +20,13 @@ export class News extends Component {
   }
 
 componentDidMount() {
+    // takes news api and gathers data in JSON format
         fetch(this.state.collectNews, {
           'headers': {'Accept': 'application/json'}
         })
         .then(res  => res.json())
+        // Returns results and shows top three news articles from BBC
+        //MVP level, will switch to listView in future for less redundant code. 
         .then(res => this.setState({
           article1: res.articles[0].title,
           article2: res.articles[1].title,
@@ -35,6 +38,7 @@ componentDidMount() {
 
   render() {
     return (
+      // Basic Text Titles from Articles, links added soon
       <View>
       <Text style={styles.newsTitle}>News:</Text>
         <Text>{this.state.article1}</Text>
