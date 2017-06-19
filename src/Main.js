@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   },
   timeContainer: {
 		flex: 1,
+    // backgroundColor: '#31313A',
   },
   dateWeatherView: {
   	flex: .75,

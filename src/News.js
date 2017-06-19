@@ -38,7 +38,7 @@ componentDidMount() {
 
   render() {
     return (
-      // Basic Text Titles from Articles, links added soon
+      // Basic text titles from articles, links added soon
       <View>
       <Text style={styles.newsTitle}>News:</Text>
         <Text>{this.state.article1}</Text>

@@ -6,7 +6,9 @@ import {
   Text,
   View,
   ActivityIndicator,
-  DeviceEventEmitter 
+  DeviceEventEmitter,
+  Image,
+  TouchableOpacity
 } from 'react-native';
 const appID = require('./api/weatherConfig')
 
@@ -43,7 +45,10 @@ componentDidMount() {
 				.then(res => this.setState({
 					isLoading: false,
 					skyConditions: res.weather[0].main,
-					temp: Math.floor(res.main.temp) + '°'
+          // REACT NATIVE DOESNT WORK WITH DYNAMIC IMAGES
+          weatherImage: './img/weatherIcons/' + res.weather[0].main + '.png',
+          weatherImageSrc: "../src/img/weatherIcons/" + res.weather[0].main + ".png",
+          temp: Math.floor(res.main.temp) + '°'
 				}))
 				.catch(err => console.log('weather fetch error:', err))
       },
@@ -54,10 +59,19 @@ componentDidMount() {
 
 
   render() {
-  	let weatherIsLoading = this.state.isLoading ? 
+    console.log(this.state.weatherImageSrc);
+
+    // IMAGE SRC CANNOT BE DYNAMIC. NEED TO FIND NEW, CLEAN METHOD OF CHANGING IMAGES FOR WEATHER
+    // Could possibly write large switch case for 'dynamic' change.
+          //vvvvv BELONGS IN OPEN SPACE BEWLOW vvvvvv
+          // <Image source = {{uri: this.state.weatherImageSrc}} />
+    
+    let weatherIsLoading = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
-  		( <View>
-  			  <Text style={styles.title}> {this.state.skyConditions} </Text>
+      ( <View style={styles.weatherContainer}>
+          <Text style={styles.title}> {this.state.skyConditions} </Text>
+          
+
   			  <Text style={styles.title}> {this.state.temp} </Text>
   		  </View> )
 
@@ -72,6 +86,10 @@ componentDidMount() {
 var styles = StyleSheet.create({
   title: {
   	opacity: 0.9,
-    fontSize: 54,
+    fontSize: 24,
+    // color: "#D6DEE2"
   },
+  weatherContainer: {
+    flex: 1
+  }
 });
