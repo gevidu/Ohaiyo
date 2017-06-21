@@ -70,7 +70,6 @@ componentDidMount() {
       ( <ActivityIndicator size='large'/> ) :
       ( <View style={styles.weatherContainer}>
           <Text style={styles.title}> {this.state.skyConditions} </Text>
-          
 
   			  <Text style={styles.title}> {this.state.temp} </Text>
   		  </View> )

@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  AlertIOS
 } from 'react-native';
 
 export class Alarm extends Component {
@@ -58,6 +59,18 @@ export class Alarm extends Component {
 		});
 }
 
+
+alert() {
+AlertIOS.alert(
+	'Wake at this time?',
+	[
+   {text: 'Yes', onPress: () => console.log('yeeee')},
+   {text: 'Nope', onPress: () => console.log('nope'), style: 'cancel'}
+ ],
+	)
+}
+
+
 	render() {
 		return(
 			<View>
@@ -70,7 +83,9 @@ export class Alarm extends Component {
 				<Text>{this.state.possibleWakeUpTimes[2]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[3]}</Text>
 				<Text>{this.state.possibleWakeUpTimes[4]}</Text>
+<TouchableOpacity onPress={() => {this.alert()}}>
 				<Text>{this.state.possibleWakeUpTimes[5]}</Text>
+</TouchableOpacity>
 				</View>		
 			</View>
 			)
