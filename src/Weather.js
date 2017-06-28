@@ -46,8 +46,8 @@ componentDidMount() {
 					isLoading: false,
 					skyConditions: res.weather[0].main,
           // REACT NATIVE DOESNT WORK WITH DYNAMIC IMAGES
-          weatherImage: './img/weatherIcons/' + res.weather[0].main + '.png',
-          weatherImageSrc: "../src/img/weatherIcons/" + res.weather[0].main + ".png",
+          // weatherImage: './img/weatherIcons/' + res.weather[0].main + '.png',
+          // weatherImageSrc: "../src/img/weatherIcons/" + res.weather[0].main + ".png",
           temp: Math.floor(res.main.temp) + '°'
 				}))
 				.catch(err => console.log('weather fetch error:', err))

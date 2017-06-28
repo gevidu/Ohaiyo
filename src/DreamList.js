@@ -64,7 +64,7 @@ export default class DreamList extends Component {
       <View style={ styles.dreamContainer }>
         <Text style={ styles.dreamText }>{ data.text }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
-          <Text>{data.date}</Text>
+          <Text style={styles.dateText}> {data.date}</Text>
           <TouchableOpacity style={styles.deleteButton} onPress={() => {this.deleteDream(data.key)}}>
             <Image style={ styles.Image } source={require('./img/trash.png')} />
           </TouchableOpacity>
@@ -100,14 +100,23 @@ export default class DreamList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#181818'
+    
   },
   dreamList: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#181818'
   },
+
+  dateText: {
+    color: '#ffffff',
+    opacity: 0.9
+  },
+
   dreamContainer: {
     padding: 16,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#181818',
     borderBottomWidth: 1,
     borderBottomColor: '#CDCDCD',
     flexDirection: 'row',
@@ -115,12 +124,13 @@ const styles = StyleSheet.create({
   },
   dreamText: {
     flex: 1,
-    color: '#252839',
+    color: '#ffffff',
+    opacity: 0.9,
     fontSize: 16
   },
   Image: {
     opacity: 0.6,
-    tintColor: '#313234'
+    tintColor: '#ffffff'
   },
   deleteButton: {
     marginLeft: 12

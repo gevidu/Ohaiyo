@@ -75,6 +75,7 @@ export default class AddDream extends Component {
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder={this.state.placeholder}
+          placeholderTextColor={'#ffffff'}
           value={this.state.text}
           multiline={true}
         />
@@ -90,34 +91,42 @@ const styles = StyleSheet.create({
   addUnfocused: {
     paddingTop: 5,
     flex: .075,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderBottomWidth: 1.5,
+    paddingBottom: 13,
+    borderBottomColor: '#ffffff',
+    backgroundColor: '#181818'
   },
   addFocused: {
     paddingTop: 5,
     flex: .075,
     flexDirection: 'column',
-    marginBottom: 10
+    marginBottom: 10,
+    backgroundColor: '#181818'
+
   },
   textInput: {
     flex: 1,
-    color: '#252839',
+    color: '#ffffff',
+    backgroundColor: '#181818',
     marginLeft: 16,
     marginRight: 8,
-    height: (Platform.OS == 'android') ? 38 : 100,
+    height: (Platform.OS == 'android') ? 10 : 30,
     borderWidth: 0
   },
   addButton: {
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-    backgroundColor: '#ffffff',
-    borderColor: '#000000',
+    backgroundColor: '#181818',
+    opacity: 0.9,
+    color: '#ffffff',
+    borderColor: '#ffffff',
     borderWidth: 1,
     marginLeft: 8,
     marginRight: 16,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    color: '#252839',
     borderRadius: 4
   }
 });
