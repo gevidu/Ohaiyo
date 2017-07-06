@@ -97,18 +97,16 @@ export class Alarm extends Component {
 
 	timeChosen(rowData){
 		let wakeTime = rowData.split(':')
-		let wakeHours = Number(wakeTime[0])
-		let wakeMinutes = Number(wakeTime[1])
 		let hour = new Date().getHours();
 		let minute = new Date().getMinutes();		
-		let startDate = new Date(0, 0, 0, hour, minute, 0);
-    let endDate = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
-    let milsTilWake = endDate.getTime() - startDate.getTime();
+		let startTime = new Date(0, 0, 0, hour, minute, 0);
+    let endTime = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
+    let millsTilWake = endTime.getTime() - startTime.getTime();
 
     this.setState({
 			timePicked: true,
 			setTime: rowData,
-			millisecondsUntilWake: milsTilWake
+			millisecondsUntilWake: millsTilWake
 		})	
 
 	}

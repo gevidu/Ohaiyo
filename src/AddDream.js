@@ -80,7 +80,7 @@ export default class AddDream extends Component {
           multiline={true}
         />
         <TouchableOpacity onPress={() => {this.submit()}}>
-          <Text style={styles.addButton}>+</Text>
+          <Text style={styles.addButton}>Add</Text>
         </TouchableOpacity>
       </Animated.View>
     );
