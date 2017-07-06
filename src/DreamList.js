@@ -102,12 +102,12 @@ export default class DreamList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#181818'
+    backgroundColor: '#484848'
     
   },
   dreamList: {
     flex: 1,
-    backgroundColor: '#181818'
+    backgroundColor: '#484848'
   },
 
   dateText: {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
   dreamContainer: {
     padding: 16,
-    backgroundColor: '#181818',
+    backgroundColor: '#484848',
     borderBottomWidth: 1,
     borderBottomColor: '#CDCDCD',
     flexDirection: 'row',
