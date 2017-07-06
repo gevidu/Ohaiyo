@@ -104,25 +104,21 @@ export class Alarm extends Component {
 	}
 
 	render() {
-
-
-		 let alarmSettings = this.state.timePicked ? 
-      (
-      	<View style={styles.timeHasBeenSet}>
-      		<Text style={styles.text}>{this.state.setTime}</Text>	
-      		<Text onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
-      	</View> ) 
-      :
-      ( <View>
-					<TouchableOpacity onPress={() => {this.sleepStart()}}>
-						<Text style={styles.button} >Get Sleep Times</Text>
-					</TouchableOpacity>
-					<ListView
+		 let alarmSettings = this.state.timePicked 
+		?  (  <View style={styles.timeHasBeenSet}>
+      			<Text style={styles.text}>{this.state.setTime}</Text>	
+      			<Text onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
+      	  </View> ) 
+    :  (  <View>
+				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
+							<Text style={styles.button} >Get Sleep Times</Text>
+						</TouchableOpacity>
+						<ListView
 						style={styles.list}
 						dataSource={this.state.dataSource}  
 						enableEmptySections={true} 
 						renderRow={this.renderRow.bind(this)} />      		
-			</View> )
+					</View> )
 
 
 
