@@ -3,7 +3,8 @@ import DreamList from '../DreamList';
 import AddDream from '../AddDream';
 import {
   StyleSheet,
-  View
+  View,
+  Image
 } from 'react-native';
 
 const firebase = require('firebase');

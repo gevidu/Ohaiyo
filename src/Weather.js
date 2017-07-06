@@ -59,8 +59,6 @@ componentDidMount() {
 
 
   render() {
-    console.log(this.state.weatherImageSrc);
-
     // IMAGE SRC CANNOT BE DYNAMIC. NEED TO FIND NEW, CLEAN METHOD OF CHANGING IMAGES FOR WEATHER
     // Could possibly write large switch case for 'dynamic' change.
           //vvvvv BELONGS IN OPEN SPACE BEWLOW vvvvvv

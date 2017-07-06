@@ -93,6 +93,7 @@ export default class DreamList extends Component {
           renderRow={(rowData) => this.renderRow(rowData)}
           style={ styles.dreamList }
         />
+
       </View>
     );
   }

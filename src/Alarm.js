@@ -5,22 +5,35 @@ import {
   Text,
   View,
   TouchableOpacity,
-  AlertIOS
+  TouchableHighlight,
+  AlertIOS,
+  Alert,
+  ListView
 } from 'react-native';
 
+let wakeupArray = [];
 export class Alarm extends Component {
 	constructor(props) {
+		var ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1.guid != r2.guid});
 		super(props);
 		this.state = {
-      possibleWakeUpTimes: []
+      dataSource: ds.cloneWithRows(wakeupArray),
+      timePicked: false
 		 }
 	}
+
+	componentDidMount() {
+		this.setState({
+			dataSource: this.state.dataSource.cloneWithRows(wakeupArray)
+		})
+	}
+
 
 	sleepStart(){
 		let hours = new Date().getHours();
 		let minutes = new Date().getMinutes();
 		let sleepCycles = 0;
-		let wakeupArray = [];
+				wakeupArray = [];
 
 		// takes ~14 minutes to fall asleep
     minutes += 14;
@@ -49,44 +62,73 @@ export class Alarm extends Component {
 			
 			wakeupArray.push(hours + ':' + minutes);
 
+			//adds zero infront of single digit minutes
 			if (typeof minutes === 'string') {
 				minutes = Number(minutes.substr(1));
     	};
 		};	
 		
 		this.setState({
-			possibleWakeUpTimes: wakeupArray
+			dataSource: this.state.dataSource.cloneWithRows(wakeupArray)
 		});
 }
 
+	renderRow(rowData, sectionID, rowID) {
+	 	return (
+	    	<TouchableHighlight 
+	    		underlayColor='#dddddd' 
+	    		style={styles.times} 
+	    		onPress={() => {this.alert(rowData)}}>
+	        	<Text style={{fontSize: 20, color: '#000000', textAlign: 'center'}} numberOfLines={1}>{rowData}</Text>
+	    	</TouchableHighlight>
+	  );
+	}
 
-alert() {
-AlertIOS.alert(
-	'Wake at this time?',
-	[
-   {text: 'Yes', onPress: () => console.log('yeeee')},
-   {text: 'Nope', onPress: () => console.log('nope'), style: 'cancel'}
- ],
-	)
-}
+	alert(rowData) {
+		AlertIOS.alert(
+	'Wake Up Time',
+	`Set Alarm for ${rowData}?`,
+	  [
+	    {text: 'Yes', onPress: () => this.timeChosen(rowData)},
+	    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+	  ]
+		)
+	}
 
+	timeChosen(rowData){
+		this.setState({
+			timePicked: true,
+			setTime: rowData
+		})
+		console.log('Yes', this.state.timePicked)
+	}
 
 	render() {
-		return(
-			<View>
+
+
+		 let alarmSettings = this.state.timePicked ? 
+      (
+      	<View style={styles.timeHasBeenSet}>
+      		<Text style={styles.text}>{this.state.setTime}</Text>	
+      		<Text onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
+      	</View> ) 
+      :
+      ( <View>
 					<TouchableOpacity onPress={() => {this.sleepStart()}}>
 						<Text style={styles.button} >Get Sleep Times</Text>
 					</TouchableOpacity>
+					<ListView
+						style={styles.list}
+						dataSource={this.state.dataSource}  
+						enableEmptySections={true} 
+						renderRow={this.renderRow.bind(this)} />      		
+			</View> )
+
+
+
+		return(
 			<View>
-				<Text>{this.state.possibleWakeUpTimes[0]}</Text>
-				<Text>{this.state.possibleWakeUpTimes[1]}</Text>
-				<Text>{this.state.possibleWakeUpTimes[2]}</Text>
-				<Text>{this.state.possibleWakeUpTimes[3]}</Text>
-				<Text>{this.state.possibleWakeUpTimes[4]}</Text>
-<TouchableOpacity onPress={() => {this.alert()}}>
-				<Text>{this.state.possibleWakeUpTimes[5]}</Text>
-</TouchableOpacity>
-				</View>		
+				{alarmSettings}	
 			</View>
 			)
 	}
@@ -107,6 +149,21 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     color: '#252839',
     borderRadius: 4
+  },
+  times: {
+			flex: 1,
+			height: 45
+  },
+  list: {
+  	marginTop: 10
+  },
+  timeHasBeenSet: {
+  	backgroundColor: "red",
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+  	fontSize: 70
   }
 })
 
