@@ -96,18 +96,30 @@ export class Alarm extends Component {
 	}
 
 	timeChosen(rowData){
-		this.setState({
+		let wakeTime = rowData.split(':')
+		let wakeHours = Number(wakeTime[0])
+		let wakeMinutes = Number(wakeTime[1])
+		let hour = new Date().getHours();
+		let minute = new Date().getMinutes();		
+		let startDate = new Date(0, 0, 0, hour, minute, 0);
+    let endDate = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
+    let milsTilWake = endDate.getTime() - startDate.getTime();
+
+    this.setState({
 			timePicked: true,
-			setTime: rowData
-		})
-		console.log('Yes', this.state.timePicked)
+			setTime: rowData,
+			millisecondsUntilWake: milsTilWake
+		})	
+
 	}
 
 	render() {
 		 let alarmSettings = this.state.timePicked 
 		?  (  <View style={styles.timeHasBeenSet}>
+						<Text style={{color: '#FFFAF1'}}>You will be waking up at</Text>
       			<Text style={styles.text}>{this.state.setTime}</Text>	
-      			<Text onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
+      			<Text style={{color: '#FFFAF1', marginTop: 10}}>Sleep Well :)</Text>
+      			<Text style={{color: '#FFFAF1', marginTop: 10, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
       	  </View> ) 
     :  (  <View>
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
@@ -154,137 +166,12 @@ const styles = StyleSheet.create({
   	marginTop: 10
   },
   timeHasBeenSet: {
-  	backgroundColor: "red",
+  	backgroundColor: '#47374D',
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
+  	color: '#FFFAF1',
   	fontSize: 70
   }
 })
-
-
- // ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * 
- // ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * 
- // ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * ~ * 
-
-
-// export default class AlarmList extends Component {
-//   constructor() {
-//     super();
-//     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-//     this.state = {
-//       dataSource: ds.cloneWithRows([]),
-//       loading: true
-//     };
-//     this.alarmsRef = this.getRef().child('alarms');
-//   }
-//   getRef() {
-//     return firebase.database().ref();
-//   }
-//   listenForItems(alarmsRef) {
-//     alarmsRef.on('value', (snap) => {
-//       var items = [];
-//       snap.forEach((child) => {
-//         items.push({
-//           key: child.key,
-//           time: child.val().text,
-//           complete: child.val().complete
-//         });
-//       });
-
-//       this.setState({
-//         dataSource: this.state.dataSource.cloneWithRows(items),
-//         loading: false
-//       });
-//     });
-//   }
-//   componentDidMount() {
-//       this.listenForItems(this.alarmsRef);
-//   }
-//   toggleComplete(bool, key){
-//     firebase.database().ref('alarms/'+key).update({complete: bool});
-//   }
-//   deleteAlarm(key){
-//     firebase.database().ref('alarms/'+key).set(null);
-//   }
-//   renderRow = (data) => {
-//     return (
-//       <View style={ styles.alarm }>
-//         <Text style={ styles.alarmText }>{ data.text }</Text>
-//         <View style={{flexDirection:'row', alignItems: 'center'}}>
-//           <Switch
-//             onValueChange={(value) => this.toggleComplete(!data.complete, data.key)}
-//             tintColor="#b5b5b7"
-//             onTintColor="#f2b632"
-//             thumbTintColor="#252839"
-//             value={data.complete} />
-//           <TouchableOpacity style={styles.deleteButtonWrapper} onPress={() => {this.deleteAlarm(data.key)}}>
-//             <Image source={require('./img/ic_delete_black_24dp_1x.png')} />
-//           </TouchableOpacity>
-//         </View>
-//       </View>
-//     );
-//   }
-//   render() {
-//     var loading;
-//     if(this.state.loading){
-//       loading = (<View>
-//         <Text style={styles.loadingText}>Carregando alarms...</Text><ActivityIndicator
-//           animating={this.state.loading}
-//           style={ styles.loading }
-//         />
-//       </View>);
-//     }
-//     return (
-//       <View style={ styles.container }>
-//         {loading}
-//         <ListView
-//           enableEmptySections={true}
-//           dataSource={this.state.dataSource}
-//           renderRow={(rowData) => this.renderRow(rowData)}
-//           style={ styles.AlarmList }
-//         />
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1
-//   },
-//   AlarmList: {
-//     flex: 1
-//   },
-//   alarm: {
-//     padding: 16,
-//     backgroundColor: '#E7E7E7',
-//     borderBottomWidth: 1,
-//     borderBottomColor: '#CDCDCD',
-//     flexDirection: 'row',
-//     justifyContent: 'space-between'
-//   },
-//   alarmText: {
-//     flex: 1,
-//     color: '#252839',
-//     fontSize: 16
-//   },
-//   deleteButtonWrapper: {
-//     marginLeft: 12
-//   },
-//   loading: {
-//     padding: 8
-//   },
-//   loadingText: {
-//     paddingTop: 16,
-//     textAlign: 'center',
-//     color: '#b5b5b7'
-//   }
-// });
-
-
-
-
-
-

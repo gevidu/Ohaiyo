@@ -56,13 +56,13 @@ export default class DreamList extends Component {
     firebase.database().ref('dreams/'+key).set(null);
   }
 
-
   renderRow = (data) => {
+    let shortenedText = data.text.substring(0,9) + '...'
     return (
       <View>
 
       <View style={ styles.dreamContainer }>
-        <Text style={ styles.dreamText }>{ data.text }</Text>
+        <Text style={ styles.dreamText }>{ shortenedText }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
           <Text style={styles.dateText}> {data.date}</Text>
           <TouchableOpacity style={styles.deleteButton} onPress={() => {this.deleteDream(data.key)}}>
@@ -102,22 +102,21 @@ export default class DreamList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#484848'
+    backgroundColor: '#47374D'
     
   },
   dreamList: {
     flex: 1,
-    backgroundColor: '#484848'
+    backgroundColor: '#47374D'
   },
 
   dateText: {
-    color: '#ffffff',
-    opacity: 0.9
+    color: '#ffffff'
   },
 
   dreamContainer: {
     padding: 16,
-    backgroundColor: '#484848',
+    backgroundColor: '#47374D',
     borderBottomWidth: 1,
     borderBottomColor: '#CDCDCD',
     flexDirection: 'row',
@@ -126,12 +125,10 @@ const styles = StyleSheet.create({
   dreamText: {
     flex: 1,
     color: '#ffffff',
-    opacity: 0.9,
     fontSize: 16
   },
   Image: {
-    opacity: 0.6,
-    tintColor: '#ffffff'
+    
   },
   deleteButton: {
     marginLeft: 12
