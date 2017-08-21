@@ -41,9 +41,9 @@ componentDidMount() {
       // Basic text titles from articles, links added soon
       <View>
       <Text style={styles.newsTitle}>News:</Text>
-        <Text>{this.state.article1}</Text>
-        <Text>{this.state.article2}</Text>
-        <Text>{this.state.article3}</Text>
+        <Text style={styles.text}>{this.state.article1}</Text>
+        <Text style={styles.text}>{this.state.article2}</Text>
+        <Text style={styles.text}>{this.state.article3}</Text>
       </View>
     );
   }
@@ -51,7 +51,11 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   newsTitle: {
+    color: '#EBE9DC',
     opacity: 0.9,
     fontSize: 24,
   },
+  text: {
+    color: '#EBE9DC'
+  }
 });

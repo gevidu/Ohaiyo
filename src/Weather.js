@@ -57,15 +57,29 @@ componentDidMount() {
   }
 
   render() {
-
     let skyCons = this.state.skyConditions;
     var imageLookupTable = {
       "Haze": () => {
         return image.haze;
       },
-      "clear": () => {
+      "Clear": () => {
         return image.clear;
-      }
+      },
+      "Rain": () => {
+        return image.rain;
+      },
+      "Snow": () => {
+        return image.snow;
+      },
+      "Thunderstorms": () => {
+        return image.thunderstorms;
+      },
+      "Partly Cloudy": () => {
+        return image.partlyCloudy;
+      },
+      "Clouds": () => {
+        return image.clouds;
+      },
     };
 
     let weatherIsLoading = this.state.isLoading ? 
@@ -73,7 +87,7 @@ componentDidMount() {
       ( <View style={styles.weatherContainer}>
           <Text style={styles.title}> {this.state.skyConditions} </Text>
           <Text style={styles.title}> {this.state.temp} </Text>
-          <Image source = {imageLookupTable[skyCons]()} />
+          <Image style={styles.image} source = {imageLookupTable[skyCons]()} />
   		  </View> )
 
     return (
