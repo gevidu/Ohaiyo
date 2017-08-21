@@ -11,6 +11,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 const appID = require('./api/weatherConfig')
+const image = require('./img/weatherIcons/weatherIcons.js')
+
 
 export class Weather extends Component {
 	constructor(props) {
@@ -43,33 +45,35 @@ componentDidMount() {
 		    })
 				.then(res  => res.json())
 				.then(res => this.setState({
-					isLoading: false,
-					skyConditions: res.weather[0].main,
-          // REACT NATIVE DOESNT WORK WITH DYNAMIC IMAGES
-          // weatherImage: './img/weatherIcons/' + res.weather[0].main + '.png',
-          // weatherImageSrc: "../src/img/weatherIcons/" + res.weather[0].main + ".png",
-          temp: Math.floor(res.main.temp) + '°'
-				}))
-				.catch(err => console.log('weather fetch error:', err))
+          skyConditions: res.weather[0].main,
+          temp: Math.floor(res.main.temp) + '°',
+					isLoading: false
+        }))
+        .catch(err => console.log('weather fetch error:', err))
       },
       (error) => console.log(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
   }
 
-
   render() {
-    // IMAGE SRC CANNOT BE DYNAMIC. NEED TO FIND NEW, CLEAN METHOD OF CHANGING IMAGES FOR WEATHER
-    // Could possibly write large switch case for 'dynamic' change.
-          //vvvvv BELONGS IN OPEN SPACE BEWLOW vvvvvv
-          // <Image source = {{uri: this.state.weatherImageSrc}} />
-    
+
+    let skyCons = this.state.skyConditions;
+    var imageLookupTable = {
+      "Haze": () => {
+        return image.haze;
+      },
+      "clear": () => {
+        return image.clear;
+      }
+    };
+
     let weatherIsLoading = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
       ( <View style={styles.weatherContainer}>
           <Text style={styles.title}> {this.state.skyConditions} </Text>
-
-  			  <Text style={styles.title}> {this.state.temp} </Text>
+          <Text style={styles.title}> {this.state.temp} </Text>
+          <Image source = {imageLookupTable[skyCons]()} />
   		  </View> )
 
     return (
@@ -84,7 +88,7 @@ var styles = StyleSheet.create({
   title: {
   	opacity: 0.9,
     fontSize: 24,
-    // color: "#D6DEE2"
+    color: "#EBE9DC"
   },
   weatherContainer: {
     flex: 1

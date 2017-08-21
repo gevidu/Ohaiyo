@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   currentTime: {
     opacity: 0.9,
     fontSize: 36,
+    color: '#EBE9DC'
   }
 });
 

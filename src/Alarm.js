@@ -77,7 +77,7 @@ export class Alarm extends Component {
 	 	return (
 	    	<TouchableHighlight 
 	    		underlayColor='#dddddd' 
-	    		style={styles.times} 
+	    		style={styles.times}
 	    		onPress={() => {this.alert(rowData)}}>
 	        	<Text style={{fontSize: 20, color: '#000000', textAlign: 'center'}} numberOfLines={1}>{rowData}</Text>
 	    	</TouchableHighlight>
@@ -102,20 +102,22 @@ export class Alarm extends Component {
 		let startTime = new Date(0, 0, 0, hour, minute, 0);
     let endTime = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
     let millsTilWake = endTime.getTime() - startTime.getTime();
+    console.log(millsTilWake);
 
     this.setState({
 			timePicked: true,
 			setTime: rowData,
 			millisecondsUntilWake: millsTilWake
 		})	
-
+		console.log(this.state.millisecondsUntilWake);
 	}
+
 
 	render() {
 		 let alarmSettings = this.state.timePicked 
 		?  (  <View style={styles.timeHasBeenSet}>
 						<Text style={{color: '#FFFAF1'}}>You will be waking up at</Text>
-      			<Text style={styles.text}>{this.state.setTime}</Text>	
+      			<Text style={styles.text} onPress={() => console.log(this.state.millisecondsUntilWake)} >{this.state.setTime}</Text>	
       			<Text style={{color: '#FFFAF1', marginTop: 10}}>Sleep Well :)</Text>
       			<Text style={{color: '#FFFAF1', marginTop: 10, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
       	  </View> ) 

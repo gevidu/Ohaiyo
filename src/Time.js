@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
   currentTime: {
 		padding: 10,
 		paddingTop: 2,
-    fontSize: 54
+    fontSize: 54,
+    color: '#EBE9DC'
   },
   timeContainer: {
   	flex: .1,
