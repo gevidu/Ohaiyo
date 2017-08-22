@@ -95,20 +95,20 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.5,
     paddingBottom: 13,
     borderBottomColor: '#ffffff',
-    backgroundColor: '#47374D'
+    backgroundColor: '#181818'
   },
   addFocused: {
     paddingTop: 5,
     flex: .075,
     flexDirection: 'column',
     marginBottom: 10,
-    backgroundColor: '#47374D'
+    backgroundColor: '#181818'
 
   },
   textInput: {
     flex: 1,
     color: '#ffffff',
-    backgroundColor: '#47374D',
+    backgroundColor: '#181818',
     marginLeft: 16,
     marginRight: 8,
     height: (Platform.OS == 'android') ? 10 : 30,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-    backgroundColor: '#47374D',
+    backgroundColor: '#181818',
     opacity: 0.9,
     color: '#ffffff',
     borderColor: '#ffffff',

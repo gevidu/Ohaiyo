@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 
   dreamContainer: {
     padding: 16,
-    backgroundColor: '#47374D',
+    backgroundColor: '#181818',
     borderBottomWidth: 1,
     borderBottomColor: '#CDCDCD',
     flexDirection: 'row',

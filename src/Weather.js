@@ -11,7 +11,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 const appID = require('./api/weatherConfig')
-const image = require('./img/weatherIcons/weatherIcons.js')
+const icon = require('./img/weatherIcons/weatherIcons')
 
 
 export class Weather extends Component {
@@ -58,27 +58,27 @@ componentDidMount() {
 
   render() {
     let skyCons = this.state.skyConditions;
-    var imageLookupTable = {
+    let imageLookupTable = {
       "Haze": () => {
-        return image.haze;
+        return icon.haze;
       },
       "Clear": () => {
-        return image.clear;
+        return icon.clear;
       },
       "Rain": () => {
-        return image.rain;
+        return icon.rain;
       },
       "Snow": () => {
-        return image.snow;
+        return icon.snow;
       },
       "Thunderstorms": () => {
-        return image.thunderstorms;
+        return icon.thunderstorms;
       },
       "Partly Cloudy": () => {
-        return image.partlyCloudy;
+        return icon.partlyCloudy;
       },
       "Clouds": () => {
-        return image.clouds;
+        return icon.clouds;
       },
     };
 

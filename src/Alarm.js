@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   	marginTop: 10
   },
   timeHasBeenSet: {
-  	backgroundColor: '#47374D',
+  	backgroundColor: '#181818',
     justifyContent: 'center',
     alignItems: 'center'
   },
