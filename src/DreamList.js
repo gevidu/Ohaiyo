@@ -1,6 +1,6 @@
+'use strict';
 import React, { Component } from 'react';
 import Swipeout from 'rc-swipeout/lib';
-// import 'rc-swipeout/assets/index.less';
 import {
   StyleSheet,
   Text,

@@ -1,5 +1,4 @@
 'use strict';
-
 import React, { Component } from 'react';
 import { CurrentTime } from './Time';
 import { Weather } from './Weather';
