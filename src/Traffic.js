@@ -7,7 +7,8 @@ import {
   ActivityIndicator,
   DeviceEventEmitter,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput
 } from 'react-native';
 const _trafficKey = require('./api/trafficConfig')
 
@@ -15,15 +16,14 @@ export class Traffic extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			lat: '',
-			lon: '',
-			Destination: '',
+			destination: '',
+      city: '',
       trafficSearch: '',
-			destinationSet: false
+			destinationSet: true
 		}
 	}
 
-componentDidMount() {
+componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         //gives latitude variable definition from phone's possition
@@ -40,7 +40,11 @@ componentDidMount() {
 		    	'headers': {'Accept': 'application/json'}
 		    })
 				.then(res  => res.json())
-				.then(res => console.log(res))
+        .then(res => this.setState({
+          distance: res.rows[0].elements[0].distance.text,
+          duration: res.rows[0].elements[0].duration.text,
+          isLoading: false
+        }))
         .catch(err => console.log('traffic fetch error:', err))
       },
       (error) => console.log(JSON.stringify(error)),
@@ -49,11 +53,16 @@ componentDidMount() {
   }
 
   render() {
-
+    let trafficLoad = this.state.isLoading ? 
+      ( <ActivityIndicator size='large'/> ) :
+      ( <View>
+            <Text style={styles.title}> Time to Destination: {this.state.duration} </Text>
+        </View> )
 
     return (
 			<View>
-    	</View>
+          {trafficLoad}
+      </View>
     );
   }
 };
