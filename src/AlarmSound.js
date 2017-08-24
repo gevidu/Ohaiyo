@@ -10,7 +10,7 @@ import {
   Alert,
   ListView
 } from 'react-native';
-var Sound = require('react-native-sound');
+const Sound = require('react-native-sound');
 
 export class AlarmSound extends Component {
 	constructor(props) {
@@ -32,7 +32,6 @@ click() {
 	  		}
 			});
 	  }
-	  // loaded successfully
 	  console.log('duration in seconds: ' + waha.getDuration());
 	});
 }
@@ -41,7 +40,7 @@ click() {
 		return (
 				<View>
 					<TouchableOpacity onPress={() => {this.click()}}>	
-						<Text style={styles.button2} >Sounds!</Text>
+						<Text style={styles.button2}>Sound!</Text>
 					</TouchableOpacity>
 				</View>
 			)

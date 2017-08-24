@@ -45,6 +45,7 @@ android/app/libs
 /src/api/configs.js
 /src/api/weatherConfig.js
 /src/api/newsConfig.js
+/src/api/trafficConfig.js
 
 # fastlane
 #

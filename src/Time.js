@@ -38,14 +38,11 @@ const styles = StyleSheet.create({
   currentTime: {
 		padding: 10,
 		paddingTop: 2,
-    fontSize: 54,
+    fontSize: 72,
     color: '#EBE9DC'
   },
   timeContainer: {
-  	flex: .1,
-  	opacity: 0.9,
   	alignItems: 'center',
-  	borderWidth: 1
   }
 });
 

@@ -8,6 +8,7 @@ import { LeaveBy } from './LeaveBy';
 import { MorningUpdate } from './MorningUpdate';
 import { DreamTab } from './api/Firebase';
 import { News } from './News';
+import { Traffic } from './Traffic';
 import {
   AppRegistry,
   StyleSheet,
@@ -43,6 +44,7 @@ export class Main extends Component {
               <Weather />
             </View>
             <View>
+            <Traffic />
             <News />
               <MorningUpdate />
               <LeaveBy />

@@ -126,16 +126,14 @@ export class Alarm extends Component {
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
 							<Text style={styles.button} >Get Sleep Times</Text>
 						</TouchableOpacity>
-						<AlarmSound />
 						<ListView
 						style={styles.list}
 						dataSource={this.state.dataSource}  
 						enableEmptySections={true} 
 						renderRow={this.renderRow.bind(this)} />      		
+						<AlarmSound />
 					</View> )
-
-
-
+    
 		return(
 			<View>
 				{alarmSettings}	

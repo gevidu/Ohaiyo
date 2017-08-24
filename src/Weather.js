@@ -76,6 +76,9 @@ componentDidMount() {
       "Partly Cloudy": () => {
         return icon.partlyCloudy;
       },
+      "Mist": () => {
+        return icon.mist;
+      },
       "Clouds": () => {
         return icon.clouds;
       },
