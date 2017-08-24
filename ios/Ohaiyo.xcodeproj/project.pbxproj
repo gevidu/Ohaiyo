@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -22,9 +23,12 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3D3C4A93616642AD970BE98F /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49D8BAA98304C9DB97C69D5 /* libRNSVG.a */; };
+		409DC2C94E214C7D8872BFDD /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC5283277A74B8E80E7D1A4 /* libRNSound.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		409DC2C94E214C7D8872BFDD /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC5283277A74B8E80E7D1A4 /* libRNSound.a */; };
+		F17D38D91F4EC4DD008E3970 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
+		F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
+		F1D9728A1F4EC1190095D2C8 /* waha.mp3 in Sources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +221,13 @@
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = RNSVG;
 		};
+		F1D972851F4EBF680095D2C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 022A29D0065D48EEADEAC5A6 /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +240,7 @@
 		00E356EE1AD99517003FC87E /* OhaiyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhaiyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* OhaiyoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OhaiyoTests.m; sourceTree = "<group>"; };
+		022A29D0065D48EEADEAC5A6 /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Ohaiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohaiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,12 +252,12 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Ohaiyo/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6CC5283277A74B8E80E7D1A4 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7F883318CD8C41C292F97931 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		F1D972881F4EC0E90095D2C8 /* waha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waha.mp3; sourceTree = "<group>"; };
 		F49D8BAA98304C9DB97C69D5 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
-		022A29D0065D48EEADEAC5A6 /* RNSound.xcodeproj */ = {isa = PBXFileReference; name = "RNSound.xcodeproj"; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		6CC5283277A74B8E80E7D1A4 /* libRNSound.a */ = {isa = PBXFileReference; name = "libRNSound.a"; path = "libRNSound.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +372,7 @@
 		13B07FAE1A68108700A75B9A /* Ohaiyo */ = {
 			isa = PBXGroup;
 			children = (
+				F1D972881F4EC0E90095D2C8 /* waha.mp3 */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -466,6 +479,14 @@
 			isa = PBXGroup;
 			children = (
 				F16C316D1E57B5CE00A37E3F /* libRNSVG.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1D972691F4EBF670095D2C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1D972861F4EBF680095D2C8 /* libRNSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -584,6 +605,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = F1D972691F4EBF670095D2C8 /* Products */;
+					ProjectRef = 022A29D0065D48EEADEAC5A6 /* RNSound.xcodeproj */;
 				},
 				{
 					ProductGroup = F16C31501E57B5CC00A37E3F /* Products */;
@@ -781,6 +806,13 @@
 			remoteRef = F16C316C1E57B5CE00A37E3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F1D972861F4EBF680095D2C8 /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = F1D972851F4EBF680095D2C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -788,6 +820,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17D38D91F4EC4DD008E3970 /* waha.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +830,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D9728A1F4EC1190095D2C8 /* waha.mp3 in Sources */,
 				00E356F31AD99517003FC87E /* OhaiyoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -878,6 +913,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohaiyo.app/Ohaiyo";
 			};
 			name = Debug;
@@ -897,6 +933,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohaiyo.app/Ohaiyo";
 			};
 			name = Release;

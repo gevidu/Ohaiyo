@@ -20,21 +20,20 @@ export class AlarmSound extends Component {
 	}
 
 click() {
-	var waha = new Sound('./snd/waha.mp3', Sound.MAIN_BUNDLE, (error) => {
+	let waha = new Sound('waha.mp3', Sound.MAIN_BUNDLE, (error) => {
 	  if (error) {
-	    console.log('failed to load the sound', error);
-	    return;
+	    console.log('error:', error);
+	  } else {
+	  	waha.play((success) => {
+	  		if (success) {
+	    		console.log('success');
+	  		} else {
+	    		console.log('failed');
+	  		}
+			});
 	  }
 	  // loaded successfully
-	  console.log('duration in seconds: ' + waha.getDuration() + 'number of channels: ' + waha.getNumberOfChannels());
-	});
-
-	waha.play((success) => {
-	  if (success) {
-	    console.log('successfully finished playing');
-	  } else {
-	    console.log('playback failed due to audio decoding errors');
-	  }
+	  console.log('duration in seconds: ' + waha.getDuration());
 	});
 }
 
