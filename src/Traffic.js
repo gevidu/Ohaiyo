@@ -32,10 +32,10 @@ componentDidMount() {
         //gives longitude variable definition from phone's possition
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
-        // Creates weather search query from coords
-    		let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=Portland&destinations=San+Francisco&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
+        // Creates traffic search query from coords
+    		let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=San+Francisco&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
     		this.setState({trafficSearch});
-				//makes weather api call
+				//makes traffic api call
 		    fetch(this.state.trafficSearch, {
 		    	'headers': {'Accept': 'application/json'}
 		    })
