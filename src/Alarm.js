@@ -85,14 +85,15 @@ export class Alarm extends Component {
 	  );
 	}
 
+	//popup notification to confirm sleep time
 	alert(rowData) {
 		AlertIOS.alert(
-	'Wake Up Time',
-	`Set Alarm for ${rowData}?`,
-	  [
-	    {text: 'Yes', onPress: () => this.timeChosen(rowData)},
-	    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
-	  ]
+			'Wake Up Time',
+			`Set Alarm for ${rowData}?`,
+				[
+			    {text: 'Yes', onPress: () => this.timeChosen(rowData)},
+			    {text: 'Cancel', onPress: () => console.log('Action Canceled'), style: 'cancel'}
+			  ]
 		)
 	}
 
@@ -134,7 +135,7 @@ export class Alarm extends Component {
       			<Text style={{color: '#FFFAF1', marginTop: 10}}>Sleep Well :)</Text>
       			<Text style={{color: '#FFFAF1', marginTop: 10, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
       	  </View> ) 
-    :  (  <View>
+    :  (  <View style={styles.container}>
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
 							<Text style={styles.button} >Get Sleep Times</Text>
 						</TouchableOpacity>
@@ -185,5 +186,7 @@ const styles = StyleSheet.create({
   text: {
   	color: '#FFFAF1',
   	fontSize: 70
+  },
+  container: {
   }
 })

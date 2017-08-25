@@ -33,7 +33,7 @@ componentWillMount() {
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates traffic search query from coords
-    		let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=San+Francisco&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
+    		let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=Portland+OR&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
     		this.setState({trafficSearch});
 				//makes traffic api call
 		    fetch(this.state.trafficSearch, {
@@ -56,7 +56,7 @@ componentWillMount() {
     let trafficLoad = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
       ( <View>
-            <Text style={styles.title}> Time to Destion: {this.state.duration} </Text>
+            <Text style={styles.title}> Time to Destination: {this.state.duration} </Text>
         </View> )
 
     return (

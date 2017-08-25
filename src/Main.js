@@ -4,8 +4,6 @@ import { CurrentTime } from './Time';
 import { Weather } from './Weather';
 import { DateComponent } from './Date';
 import { Alarm } from './Alarm';
-import { LeaveBy } from './LeaveBy';
-import { MorningUpdate } from './MorningUpdate';
 import { DreamTab } from './api/Firebase';
 import { News } from './News';
 import { Traffic } from './Traffic';
@@ -44,10 +42,8 @@ export class Main extends Component {
               <Weather />
             </View>
             <View>
-            <Traffic />
-            <News />
-              <MorningUpdate />
-              <LeaveBy />
+              <News />
+              <Traffic />
             </View>
           </View>
   	      <DreamTab tab = '3' tabLabel = 'Dreams' />
@@ -66,8 +62,7 @@ const styles = StyleSheet.create({
   	borderColor: '#ffffff'
   },
   timeContainer: {
-		flex: 1,
-    // backgroundColor: '#31313A',
+		flex: 1
   },
   dateWeatherView: {
   	flex: .75,
