@@ -56,7 +56,7 @@ componentWillMount() {
     let trafficLoad = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
       ( <View>
-            <Text style={styles.title}> Time to Destination: {this.state.duration} </Text>
+            <Text style={styles.title}> Time to Destion: {this.state.duration} </Text>
         </View> )
 
     return (

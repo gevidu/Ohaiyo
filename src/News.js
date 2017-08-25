@@ -7,13 +7,13 @@ import {
   ActivityIndicator,
   DeviceEventEmitter 
 } from 'react-native';
-const newsAppID = require('./api/newsConfig')
+const _newsAppID = require('./api/newsConfig')
 
 export class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collectNews: 'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=' + newsAppID,
+      collectNews: 'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=' + _newsAppID,
       isLoading: true,
     }
   }

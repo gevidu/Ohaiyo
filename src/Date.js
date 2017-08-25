@@ -31,7 +31,7 @@ export class DateComponent extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.currentTime}> {this.state.day} </Text>
         <Text style={styles.currentTime}> {this.state.month} </Text>
         <Text style={styles.currentTime}> {this.state.date} </Text>
@@ -42,9 +42,13 @@ export class DateComponent extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
-    opacity: 0.9,
-    fontSize: 36,
+    fontSize: 40,
     color: '#EBE9DC'
+  },
+  container:{
+    marginLeft: 5,
+    flex: 1,
+    justifyContent: 'flex-start',
   }
 });
 

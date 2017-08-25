@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-const appID = require('./api/weatherConfig')
+const _appID = require('./api/weatherConfig')
 const icon = require('./img/weatherIcons/weatherIcons')
 
 
@@ -36,7 +36,7 @@ componentDidMount() {
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates weather search query from coords
-    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid='+ appID;
+    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid='+ _appID;
     		this.setState({weatherSearch});
 				//makes weather api call
 		    fetch(this.state.weatherSearch, {
@@ -87,9 +87,8 @@ componentDidMount() {
     let weatherIsLoading = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
       ( <View style={styles.weatherContainer}>
-          <Text style={styles.title}> {this.state.skyConditions} </Text>
-          <Text style={styles.title}> {this.state.temp} </Text>
           <Image style={styles.image} source = {imageLookupTable[skyCons]()} />
+          <Text style={styles.title}> {this.state.skyConditions} | {this.state.temp} </Text>
   		  </View> )
 
     return (
@@ -103,10 +102,16 @@ componentDidMount() {
 var styles = StyleSheet.create({
   title: {
   	opacity: 0.9,
-    fontSize: 24,
+    fontSize: 20,
     color: "#EBE9DC"
   },
+  image: {
+    marginRight: 20,
+    marginBottom: 10
+  },
   weatherContainer: {
-    flex: 1
+    flex: 1,
+    marginTop: 5,
+    marginRight: 3,
   }
 });
