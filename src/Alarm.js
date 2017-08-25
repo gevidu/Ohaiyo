@@ -10,9 +10,10 @@ import {
   Alert,
   ListView
 } from 'react-native';
-import { AlarmSound } from './AlarmSound';
+const Sound = require('react-native-sound');
 
 let wakeupArray = [];
+
 export class Alarm extends Component {
 	constructor(props) {
 		var ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1.guid != r2.guid});
@@ -28,7 +29,6 @@ export class Alarm extends Component {
 			dataSource: this.state.dataSource.cloneWithRows(wakeupArray)
 		})
 	}
-
 
 	sleepStart(){
 		let hours = new Date().getHours();
@@ -104,17 +104,28 @@ export class Alarm extends Component {
     let endTime = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
     let millsTilWake = endTime.getTime() - startTime.getTime();
     console.log(millsTilWake);
-
     this.setState({
 			timePicked: true,
 			setTime: rowData,
 			millisecondsUntilWake: millsTilWake
-		})	
-		console.log(this.state.millisecondsUntilWake);
+		})
+
+		setInterval(() => { 
+			if (this.state.millisecondsUntilWake > 0 && this.state.timePicked === true) {
+			 this.setState({millisecondsUntilWake: this.state.millisecondsUntilWake - 1000})
+			} else if (this.state.millisecondsUntilWake === 0) {
+					let waha = new Sound('waha.mp3', Sound.MAIN_BUNDLE, (error) => {
+					  if (error) {
+					    console.log('error:', error);
+					  } else {
+					  	waha.play();
+					  	}
+					});
+				}
+		}, 1000);
 	}
 
-
-	render() {
+	render(){
 		 let alarmSettings = this.state.timePicked 
 		?  (  <View style={styles.timeHasBeenSet}>
 						<Text style={{color: '#FFFAF1'}}>You will be waking up at</Text>
@@ -130,10 +141,10 @@ export class Alarm extends Component {
 						style={styles.list}
 						dataSource={this.state.dataSource}  
 						enableEmptySections={true} 
-						renderRow={this.renderRow.bind(this)} />      		
-						<AlarmSound />
+						renderRow={this.renderRow.bind(this)} /> 
 					</View> )
     
+
 		return(
 			<View>
 				{alarmSettings}	
