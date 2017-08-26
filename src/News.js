@@ -54,7 +54,6 @@ componentDidMount() {
 var styles = StyleSheet.create({
   newsTitle: {
     fontFamily: 'HelveticaNeue-Light',
-    textDecorationLine: 'underline',
     marginTop: 12,
     marginRight: 50,
     color: '#EBE9DC',
@@ -62,7 +61,7 @@ var styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'HelveticaNeue-Light',
-    marginLeft: 18,
+    marginLeft: 10,
     color: '#EBE9DC',
     fontSize: 13
   }

@@ -19,7 +19,7 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locked: false,
+      locked: true,
     }
   }
 
@@ -31,9 +31,9 @@ export class Main extends Component {
           locked = {this.state.locked}
       		style={styles.tabView} 
           prerenderingSiblingsNumber={Infinity}
-      		tabBarActiveTextColor={'#EBE9DC'} 
+      		tabBarActiveTextColor={'#2BDE73'} 
           tabBarInactiveTextColor={'#68757D'}
-          tabBarUnderlineStyle={{backgroundColor: '#EBE9DC'} }
+          tabBarUnderlineStyle={{backgroundColor: '#2BDE73'} }
       		initialPage={1}>
           <Alarm tab = '1' tabLabel='Alarm'/>
           <View tab = '2' style={styles.container} tabLabel = 'Home' >
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#181818'
   },
   tabView: {
-  	borderColor: '#ffffff'
+    backgroundColor: '#181818'
   },
   timeContainer: {
 		flex: 1,

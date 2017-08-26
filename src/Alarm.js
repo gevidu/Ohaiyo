@@ -133,7 +133,7 @@ export class Alarm extends Component {
 						<Text style={{color: '#FFFAF1'}}>You will be waking up at</Text>
       			<Text style={styles.text} >{this.state.setTime}</Text>	
       			<Text style={{color: '#FFFAF1', marginTop: 10}}>Sleep Well :)</Text>
-      			<Text style={{color: '#FFFAF1', marginTop: 10, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
+      			<Text style={{color: '#2BDE73', marginTop: 20, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
       	  </View> ) 
     :  (  <View style={styles.container}>
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
 		marginTop: 10,
     textAlign: 'center',
     fontSize: 16,
-    // fontWeight: 'bold',
     backgroundColor: '#181818',
     color: '#FFFAF1',
     borderColor: '#FFFAF1',
@@ -181,13 +180,14 @@ const styles = StyleSheet.create({
   	marginTop: 10,
   },
   timeHasBeenSet: {
+  	marginTop: 40,
   	backgroundColor: '#181818',
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
   	color: '#FFFAF1',
-  	fontSize: 70
+  	fontSize: 100
   },
   container: {
   }
