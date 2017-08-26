@@ -19,7 +19,7 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locked: true,
+      locked: false,
     }
   }
 
@@ -42,8 +42,10 @@ export class Main extends Component {
               <DateComponent />
               <Weather />
             </View>
-            <View>
+            <View style={{alignItems: 'center'}}>
+              <View style={{borderWidth: .75, borderColor: '#d6d7da', width: 333, marginBottom: 5, marginTop: 24, opacity: 0.75}}/>
               <News />
+              <View style={{borderWidth: .75, borderColor: '#d6d7da', width: 333, marginBottom: -60, marginTop: 24, opacity: 0.75}}/>
               <Traffic />
             </View>
           </View>

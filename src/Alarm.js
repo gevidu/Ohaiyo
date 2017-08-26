@@ -116,11 +116,11 @@ export class Alarm extends Component {
 			 this.setState({millisecondsUntilWake: this.state.millisecondsUntilWake - 1000})
 			} else if (this.state.millisecondsUntilWake === 0) {
 					//sound to play when alarm goes off with error handling
-					let waha = new Sound('waha.mp3', Sound.MAIN_BUNDLE, (error) => {
+					let alarm = new Sound('waha.mp3', Sound.MAIN_BUNDLE, (error) => {
 					  if (error) {
 					    console.log('error:', error);
 					  } else {
-					  	waha.play();
+					  	alarm.play();
 					  	}
 					});
 				}

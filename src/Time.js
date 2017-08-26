@@ -29,7 +29,7 @@ export class CurrentTime extends Component {
     return (
       <View style= {styles.timeContainer}>
         <Text style={styles.currentTime}>{this.state.time}</Text>
-        <View style={{borderWidth: 1, borderColor: '#d6d7da', width: 333, marginBottom: 14, marginTop: -5, opacity: 0.75}}/>
+        <View style={{borderWidth: .75, borderColor: '#d6d7da', width: 333, marginBottom: 14, marginTop: -5, opacity: 0.75}}/>
       </View>
     );
   }

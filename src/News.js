@@ -55,8 +55,8 @@ var styles = StyleSheet.create({
   newsTitle: {
     fontFamily: 'HelveticaNeue-Light',
     textDecorationLine: 'underline',
-    marginTop: 16,
-    marginLeft: 18,
+    marginTop: 12,
+    marginRight: 50,
     color: '#EBE9DC',
     fontSize: 24,
   },
@@ -64,6 +64,6 @@ var styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Light',
     marginLeft: 18,
     color: '#EBE9DC',
-    fontSize: 14
+    fontSize: 13
   }
 });
