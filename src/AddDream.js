@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
+    fontFamily: 'HelveticaNeue-Light',
     color: '#ffffff',
     backgroundColor: '#181818',
     marginLeft: 16,
@@ -117,8 +118,8 @@ const styles = StyleSheet.create({
   },
   addButton: {
     textAlign: 'center',
+    fontFamily: 'HelveticaNeue-Light',
     fontSize: 16,
-    fontWeight: 'bold',
     backgroundColor: '#181818',
     opacity: 0.9,
     color: '#ffffff',

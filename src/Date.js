@@ -27,14 +27,47 @@ export class DateComponent extends Component {
       day:   new Date().toLocaleString('en-US', {weekday: 'long'}),
       month: new Date().toLocaleString('en-US', {month: 'long'})
     });
+      let ordinalCheck = this.state.date.toString().slice(-1);
+    switch (ordinalCheck) {
+      case '1':
+        this.setState({ordinalIndicator: 'st'})
+        return;
+      case '2':
+        this.setState({ordinalIndicator: 'nd'})
+        return;
+      case '3':
+        this.setState({ordinalIndicator: 'rd'})
+        return;
+      case '4':
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '5': 
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '6':
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '7':
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '8': 
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '9':
+        this.setState({ordinalIndicator: 'th'})
+        return;
+      case '0':
+        this.setState({ordinalIndicator: 'th'})
+        return;
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.currentTime}> {this.state.day} </Text>
+        <Text style={styles.currentTime}> {this.state.day}, </Text>
         <Text style={styles.currentTime}> {this.state.month} </Text>
-        <Text style={styles.currentTime}> {this.state.date} </Text>
+        <Text style={styles.currentTime}> {this.state.date}{this.state.ordinalIndicator}</Text>
       </View>
     );
   }
@@ -42,12 +75,14 @@ export class DateComponent extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
-    fontSize: 40,
+    fontFamily: 'HelveticaNeue-Thin',
+    fontSize: 42,
     color: '#EBE9DC'
   },
   container:{
+    // backgroundColor: 'yellow',
     marginLeft: 5,
-    flex: 1,
+    flex: 2,
     justifyContent: 'flex-start',
   }
 });

@@ -13,14 +13,13 @@ export class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collectNews: 'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=' + _newsAppID,
       isLoading: true,
     }
   }
 
 componentDidMount() {
     // takes news api and gathers data in JSON format
-        fetch(this.state.collectNews, {
+        fetch('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=' + _newsAppID, {
           'headers': {'Accept': 'application/json'}
         })
         .then(res  => res.json())
@@ -29,7 +28,9 @@ componentDidMount() {
         .then(res => this.setState({
           article1: res.articles[0].title,
           article2: res.articles[1].title,
-          article3: res.articles[2].title
+          article3: res.articles[2].title,
+          article4: res.articles[3].title,
+          article5: res.articles[4].title,
 
         }))
         .catch(err => console.log('news fetch error:', err))
@@ -38,11 +39,13 @@ componentDidMount() {
   render() {
     return (
       // Basic text titles from articles, links added soon
-      <View>
+      <View style={{opacity: 0.8}}>
       <Text style={styles.newsTitle}>News:</Text>
-        <Text style={styles.text}>{this.state.article1}</Text>
-        <Text style={styles.text}>{this.state.article2}</Text>
-        <Text style={styles.text}>{this.state.article3}</Text>
+        <Text style={styles.text}>• {this.state.article1}</Text>
+        <Text style={styles.text}>• {this.state.article2}</Text>
+        <Text style={styles.text}>• {this.state.article3}</Text>
+        <Text style={styles.text}>• {this.state.article4}</Text>
+        <Text style={styles.text}>• {this.state.article5}</Text>
       </View>
     );
   }
@@ -50,11 +53,17 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   newsTitle: {
+    fontFamily: 'HelveticaNeue-Light',
+    textDecorationLine: 'underline',
+    marginTop: 16,
+    marginLeft: 18,
     color: '#EBE9DC',
-    opacity: 0.9,
     fontSize: 24,
   },
   text: {
-    color: '#EBE9DC'
+    fontFamily: 'HelveticaNeue-Light',
+    marginLeft: 18,
+    color: '#EBE9DC',
+    fontSize: 14
   }
 });

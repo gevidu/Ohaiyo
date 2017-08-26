@@ -31,8 +31,9 @@ export class Main extends Component {
           locked = {this.state.locked}
       		style={styles.tabView} 
           prerenderingSiblingsNumber={Infinity}
-      		tabBarActiveTextColor={'#000000'} 
+      		tabBarActiveTextColor={'#EBE9DC'} 
           tabBarInactiveTextColor={'#68757D'}
+          tabBarUnderlineStyle={{backgroundColor: '#EBE9DC'} }
       		initialPage={1}>
           <Alarm tab = '1' tabLabel='Alarm'/>
           <View tab = '2' style={styles.container} tabLabel = 'Home' >
@@ -62,11 +63,10 @@ const styles = StyleSheet.create({
   	borderColor: '#ffffff'
   },
   timeContainer: {
-		flex: 1
+		flex: 1,
+    backgroundColor: '#181818',
   },
   dateWeatherView: {
-  	flex: .75,
-  	justifyContent: 'center',
   	flexDirection: 'row',
   }
 });

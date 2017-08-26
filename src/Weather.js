@@ -101,16 +101,18 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   title: {
-  	opacity: 0.9,
-    fontSize: 20,
+    fontFamily: 'HelveticaNeue-Thin',
+    fontSize: 24,
     color: "#EBE9DC"
   },
   image: {
     marginRight: 20,
-    marginBottom: 10
+    marginBottom: 5,
+    width: 175,
+    height: 175,
+    resizeMode: 'contain'
   },
   weatherContainer: {
-    flex: 1,
     marginTop: 5,
     marginRight: 3,
   }

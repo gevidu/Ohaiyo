@@ -29,6 +29,7 @@ export class CurrentTime extends Component {
     return (
       <View style= {styles.timeContainer}>
         <Text style={styles.currentTime}>{this.state.time}</Text>
+        <View style={{borderWidth: 1, borderColor: '#d6d7da', width: 333, marginBottom: 14, marginTop: -5, opacity: 0.75}}/>
       </View>
     );
   }
@@ -36,6 +37,7 @@ export class CurrentTime extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
+    fontFamily: 'HelveticaNeue-Light',
 		padding: 10,
 		paddingTop: 2,
     fontSize: 72,

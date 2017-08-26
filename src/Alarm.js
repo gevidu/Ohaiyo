@@ -80,7 +80,7 @@ export class Alarm extends Component {
 	    		underlayColor='#dddddd' 
 	    		style={styles.times}
 	    		onPress={() => {this.alert(rowData)}}>
-	        	<Text style={{fontSize: 20, color: '#000000', textAlign: 'center'}} numberOfLines={1}>{rowData}</Text>
+	        	<Text style={{fontSize: 20, color: '#FFFAF1', textAlign: 'center', fontFamily: 'HelveticaNeue-Light'}} numberOfLines={1}>{rowData}</Text>
 	    	</TouchableHighlight>
 	  );
 	}
@@ -157,26 +157,28 @@ export class Alarm extends Component {
 
 const styles = StyleSheet.create({
 	button: {
+		fontFamily: 'HelveticaNeue-Light',
 		marginTop: 10,
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: 'bold',
-    backgroundColor: '#ffffff',
-    borderColor: '#000000',
+    // fontWeight: 'bold',
+    backgroundColor: '#181818',
+    color: '#FFFAF1',
+    borderColor: '#FFFAF1',
     borderWidth: 1,
     marginLeft: 8,
+    marginBottom: 20,
     marginRight: 16,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    color: '#252839',
     borderRadius: 4
   },
   times: {
-			flex: 1,
-			height: 45
+		flex: 1,
+		height: 45
   },
   list: {
-  	marginTop: 10
+  	marginTop: 10,
   },
   timeHasBeenSet: {
   	backgroundColor: '#181818',

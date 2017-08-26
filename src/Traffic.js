@@ -8,7 +8,8 @@ import {
   DeviceEventEmitter,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Linking
 } from 'react-native';
 const _trafficKey = require('./api/trafficConfig')
 
@@ -55,8 +56,12 @@ componentWillMount() {
   render() {
     let trafficLoad = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
-      ( <View>
-            <Text style={styles.title}> Time to Destination: {this.state.duration} </Text>
+      ( <View style={styles.container}>
+            <Text style={styles.title}> Time to Destination: </Text>
+            <TouchableOpacity onPress={() => Linking.openURL('https://maps.google.com/maps/dir/' + this.state.lat + ',' + this.state.lon + '/Portland+OR')}>
+              <Text style={styles.duration}> {this.state.duration} </Text>
+            </TouchableOpacity>
+            <Text style={styles.instructions}> click to open in maps </Text>
         </View> )
 
     return (
@@ -69,11 +74,22 @@ componentWillMount() {
 
 var styles = StyleSheet.create({
   title: {
-  	opacity: 0.9,
-    fontSize: 24,
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 22,
     color: "#EBE9DC"
   },
-  weatherContainer: {
-    flex: 1
+  instructions: {
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 8,
+    color: "#EBE9DC"
+  },
+  duration: {
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 30,
+    color: "#EBE9DC"
+  },
+  container: {
+    marginTop: 80,
+    alignItems: 'center'
   }
 });
