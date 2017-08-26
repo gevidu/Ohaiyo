@@ -37,7 +37,7 @@ export class CurrentTime extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
 		padding: 10,
 		paddingTop: 2,
     fontSize: 72,

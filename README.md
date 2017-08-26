@@ -8,7 +8,7 @@ ___
 
 Basic features:
  * Alarm based on REM cycles (select a time nearest to when you'd like to wake)
- * Dream Notepad to record what you remember as quickly as possible
+ * Dream notepad to record what you remember as quickly as possible
  * Traffic time to work with map integration 
  * Weather widget 
  * Top news articles from BBC

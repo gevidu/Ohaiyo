@@ -38,8 +38,7 @@ componentDidMount() {
 
   render() {
     return (
-      // Basic text titles from articles, links added soon
-      <View style={{opacity: 0.8}}>
+      <View style={{opacity: 0.9}}>
       <Text style={styles.newsTitle}>News:</Text>
         <Text style={styles.text}>• {this.state.article1}</Text>
         <Text style={styles.text}>• {this.state.article2}</Text>
@@ -53,16 +52,18 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   newsTitle: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '300',
     marginTop: 12,
-    marginRight: 50,
+    marginRight: 40,
     color: '#EBE9DC',
     fontSize: 24,
   },
   text: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '100',
     marginLeft: 10,
     color: '#EBE9DC',
-    fontSize: 13
+    fontSize: 12
   }
 });

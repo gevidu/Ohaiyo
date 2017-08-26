@@ -8,9 +8,11 @@ import {
   TouchableHighlight,
   AlertIOS,
   Alert,
-  ListView
+  ListView,
+  Image
 } from 'react-native';
 const Sound = require('react-native-sound');
+const sleepyFace = require('./img/hpyslpy.png');
 
 let wakeupArray = [];
 
@@ -132,8 +134,9 @@ export class Alarm extends Component {
 		?  (  <View style={styles.timeHasBeenSet}>
 						<Text style={{color: '#FFFAF1'}}>You will be waking up at</Text>
       			<Text style={styles.text} >{this.state.setTime}</Text>	
-      			<Text style={{color: '#FFFAF1', marginTop: 10}}>Sleep Well :)</Text>
-      			<Text style={{color: '#2BDE73', marginTop: 20, marginBottom: 500}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>		
+      			
+      			<Text style={{color: '#2BDE73', marginTop: 20, marginBottom: 100}} onPress={() => {this.setState({timePicked:false})}}>Cancel</Text>	
+      			<Image style={{height: 130, width: 130, resizeMode: 'contain', opacity: 0.3, marginLeft: 12}} source = {sleepyFace} />	
       	  </View> ) 
     :  (  <View style={styles.container}>
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
@@ -145,7 +148,6 @@ export class Alarm extends Component {
 						enableEmptySections={true} 
 						renderRow={this.renderRow.bind(this)} /> 
 					</View> )
-    
 
 		return(
 			<View>
@@ -188,7 +190,5 @@ const styles = StyleSheet.create({
   text: {
   	color: '#FFFAF1',
   	fontSize: 100
-  },
-  container: {
   }
 })

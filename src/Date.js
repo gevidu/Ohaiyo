@@ -75,14 +75,13 @@ export class DateComponent extends Component {
 
 const styles = StyleSheet.create({
   currentTime: {
-    fontFamily: 'HelveticaNeue-Thin',
+    fontFamily: 'System',
+    fontWeight: '100',
     fontSize: 42,
     color: '#EBE9DC'
   },
   container:{
-    // backgroundColor: 'yellow',
     marginLeft: 5,
-    flex: 2,
     justifyContent: 'flex-start',
   }
 });

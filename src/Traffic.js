@@ -74,17 +74,20 @@ componentWillMount() {
 
 var styles = StyleSheet.create({
   title: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '200',
     fontSize: 22,
     color: "#EBE9DC"
   },
   instructions: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '100',
     fontSize: 8,
     color: "#EBE9DC"
   },
   duration: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '400',
     fontSize: 30,
     color: "#EBE9DC"
   },

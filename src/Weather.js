@@ -82,6 +82,9 @@ componentDidMount() {
       "Clouds": () => {
         return icon.clouds;
       },
+      "Fog": () => {
+        return icon.mist;
+      }
     };
 
     let weatherIsLoading = this.state.isLoading ? 
@@ -101,7 +104,8 @@ componentDidMount() {
 
 var styles = StyleSheet.create({
   title: {
-    fontFamily: 'HelveticaNeue-Thin',
+    fontFamily: 'System',
+    fontWeight: '100',
     fontSize: 24,
     color: "#EBE9DC"
   },

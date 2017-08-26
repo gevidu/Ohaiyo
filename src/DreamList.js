@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#181818'
   },
   dateText: {
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '100',
     color: '#ffffff'
   },
   dreamContainer: {
@@ -122,7 +123,8 @@ const styles = StyleSheet.create({
   },
   dreamText: {
     flex: 1,
-    fontFamily: 'HelveticaNeue-Light',
+    fontFamily: 'System',
+    fontWeight: '100',
     color: '#ffffff',
     fontSize: 16
   },
