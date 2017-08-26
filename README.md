@@ -14,4 +14,4 @@ Basic features:
  * Top news articles from BBC
 
 
-Built with React Native using a Firebase database and APIs from Google Maps, Open Weather, and the BBC
+__Built with React Native using a Firebase database and APIs from Google Maps, Open Weather, and the BBC__
