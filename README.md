@@ -4,7 +4,7 @@
 
 ___
 
-![screenshot](https://user-images.githubusercontent.com/13547790/29738509-ba9a00a0-89d8-11e7-9d9e-430b44e354d3.png)
+![screenshot](https://user-images.githubusercontent.com/13547790/29738509-ba9a00a0-89d8-11e7-9d9e-430b44e354d3.png =250x)
 
 Basic features:
  * Alarm bases on REM cycles (select a time nearest to when you'd like to way)
