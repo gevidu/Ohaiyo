@@ -139,10 +139,11 @@ export class Alarm extends Component {
       			<Image style={{height: 130, width: 130, resizeMode: 'contain', opacity: 0.3, marginLeft: 12}} source = {sleepyFace} />	
       	  </View> ) 
     :  (  <View style={styles.container}>
-				 		<TouchableOpacity onPress={() => {this.sleepStart()}}>
+				 		<TouchableOpacity onPress={() => {this.sleepStart()}} >
 							<Text style={styles.button} >Get Sleep Times</Text>
 						</TouchableOpacity>
 						<ListView
+						scrollEnabled={false}
 						style={styles.list}
 						dataSource={this.state.dataSource}  
 						enableEmptySections={true} 
@@ -164,8 +165,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     backgroundColor: '#181818',
-    color: '#FFFAF1',
-    borderColor: '#FFFAF1',
+    color: '#2BDE73',
+    borderColor: '#2BDE73',
     borderWidth: 1,
     marginLeft: 8,
     marginBottom: 20,
@@ -176,7 +177,9 @@ const styles = StyleSheet.create({
   },
   times: {
 		flex: 1,
-		height: 45
+		height: 60,
+		alignItems: 'center',
+		justifyContent: 'center'
   },
   list: {
   	marginTop: 10,

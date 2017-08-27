@@ -13,6 +13,7 @@ import {
   Image
 } from 'react-native';
 const firebase = require("firebase");
+let add = require('./img/add.png');
 
 
 export default class DreamList extends Component {
@@ -60,7 +61,6 @@ export default class DreamList extends Component {
     let shortenedText = data.text.substring(0,9) + '...'
     return (
       <View>
-
       <View style={ styles.dreamContainer }>
         <Text style={ styles.dreamText }>{ shortenedText }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
@@ -74,6 +74,7 @@ export default class DreamList extends Component {
     </View>
     );
   }
+
   render() {
     var loading;
     if(this.state.loading){
@@ -85,6 +86,8 @@ export default class DreamList extends Component {
       </View>);
     }
     return (
+      
+  
       <View style={ styles.container }>
         {loading}
         <ListView
@@ -93,7 +96,6 @@ export default class DreamList extends Component {
           renderRow={(rowData) => this.renderRow(rowData)}
           style={ styles.dreamList }
         />
-
       </View>
     );
   }

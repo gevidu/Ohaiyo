@@ -6,12 +6,16 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Dimensions,
   Platform,
   Keyboard,
   KeyboardAvoidingView,
-  Animated
+  Animated,
+  Image
 } from 'react-native';
 const firebase = require("firebase");
+let add = require('./img/add.png');
+const window = Dimensions.get('window');
 
 export default class AddDream extends Component {
   constructor(props) {
@@ -68,11 +72,11 @@ export default class AddDream extends Component {
   }
 
   render(){
-    return(
-
-      <Animated.View style={ this.state.pressStatus ? [styles.addFocused, {flex: this.state.flexHeight}] : [styles.addUnfocused, {flex: this.state.flexHeight}] }>
+    let dreamDisplay = this.state.pressStatus 
+    ? (
+        <View style={{ flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: '#ffffff', paddingBottom: 8}}>
         <TextInput
-          onFocus={this.onFocusEvent.bind(this)}
+          // onFocus={this.onFocusEvent.bind(this)}
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder={this.state.placeholder}
@@ -81,9 +85,21 @@ export default class AddDream extends Component {
           multiline={true}
         />
         <TouchableOpacity onPress={() => {this.submit()}}>
-          <Text style={styles.addButton}>Add</Text>
+          <Text style={styles.addButton}>ADD DREAM</Text>
         </TouchableOpacity>
-      </Animated.View>
+      </View>
+    ) : (
+      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
+        <Text style={{color: '#ffffff', fontFamily: 'System', fontSize: 14, fontWeight: '600'}}> WHAT DID YOU DREAM ABOUT?</Text>
+        <TouchableOpacity onPress={() => this.setState({pressStatus: true})}>
+          <Image style={{marginLeft: 54, height: 18, width: 18, resizeMode: 'contain'}} source={add} />
+        </TouchableOpacity>
+      </View>  
+    )
+    return(
+      <View>
+        {dreamDisplay}
+      </View>
     );
   }
 }
@@ -107,23 +123,21 @@ const styles = StyleSheet.create({
 
   },
   textInput: {
-    flex: 1,
+    height: window.height/3 * 1.65,
     fontFamily: 'System',
     fontWeight: '100' ,
     color: '#ffffff',
     backgroundColor: '#181818',
     marginLeft: 16,
     marginRight: 8,
-    height: (Platform.OS == 'android') ? 10 : 30,
-    borderWidth: 0
   },
   addButton: {
-    textAlign: 'center',
-    fontFamily: 'System',
-    fontWeight: '100',
+    opacity: 0.9,
+    fontFamily: 'System', 
+    fontWeight: '500',
+    textAlign: 'center',    
     fontSize: 16,
     backgroundColor: '#181818',
-    opacity: 0.9,
     color: '#ffffff',
     borderColor: '#ffffff',
     borderWidth: 1,
@@ -134,3 +148,10 @@ const styles = StyleSheet.create({
     borderRadius: 4
   }
 });
+
+
+
+
+// <Animated.View style={ this.state.pressStatus ? [styles.addFocused, {flex: this.state.flexHeight}] : [styles.addUnfocused, {flex: this.state.flexHeight}] }>
+//         {dreamDisplay}
+//       </Animated.View>
