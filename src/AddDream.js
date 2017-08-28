@@ -74,8 +74,11 @@ export default class AddDream extends Component {
   render(){
     let dreamDisplay = this.state.pressStatus 
     ? (
-        <View style={{ flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: '#ffffff', paddingBottom: 8}}>
-        <TextInput
+        <View style={{ flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: '#ffffff', paddingBottom: 8, marginTop: 4}}>
+          <TouchableOpacity style={{zIndex: 2, position: 'absolute', marginLeft: 340, marginTop: 10}} onPress={() => this.setState({pressStatus: false})}>
+            <Image style={{height: 18, width: 18, resizeMode: 'contain', transform: [{ rotate: '45deg'}]}} source={add} />
+          </TouchableOpacity>
+          <TextInput
           // onFocus={this.onFocusEvent.bind(this)}
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
@@ -83,19 +86,19 @@ export default class AddDream extends Component {
           placeholderTextColor={'#ffffff'}
           value={this.state.text}
           multiline={true}
-        />
-        <TouchableOpacity onPress={() => {this.submit()}}>
+          />
+          <TouchableOpacity onPress={() => {this.submit()}}>
           <Text style={styles.addButton}>ADD DREAM</Text>
-        </TouchableOpacity>
-      </View>
-    ) : (
-      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
-        <Text style={{color: '#ffffff', fontFamily: 'System', fontSize: 14, fontWeight: '600'}}> WHAT DID YOU DREAM ABOUT?</Text>
-        <TouchableOpacity onPress={() => this.setState({pressStatus: true})}>
-          <Image style={{marginLeft: 54, height: 18, width: 18, resizeMode: 'contain'}} source={add} />
-        </TouchableOpacity>
-      </View>  
-    )
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
+          <Text style={{color: '#ffffff', fontFamily: 'System', fontSize: 14, fontWeight: '600'}}> WHAT DID YOU DREAM ABOUT?</Text>
+          <TouchableOpacity onPress={() => this.setState({pressStatus: true})}>
+            <Image style={{marginLeft: 54, height: 18, width: 18, resizeMode: 'contain'}} source={add} />
+          </TouchableOpacity>
+        </View>  
+      )
     return(
       <View>
         {dreamDisplay}
