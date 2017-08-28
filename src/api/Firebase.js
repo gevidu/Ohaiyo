@@ -14,7 +14,7 @@ firebase.initializeApp(configs);
 export class DreamTab extends Component {
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <AddDream/>
         <DreamList />
       </View>

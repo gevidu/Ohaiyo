@@ -6,6 +6,7 @@ import {
   View,
   TouchableOpacity,
   TouchableHighlight,
+  TouchableWithoutFeedback,
   AlertIOS,
   Alert,
   ListView,

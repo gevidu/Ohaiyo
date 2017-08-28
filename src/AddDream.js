@@ -92,7 +92,7 @@ export default class AddDream extends Component {
           </TouchableOpacity>
         </View>
       ) : (
-        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
+        <View style={{flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
           <Text style={{color: '#ffffff', fontFamily: 'System', fontSize: 14, fontWeight: '600'}}> WHAT DID YOU DREAM ABOUT?</Text>
           <TouchableOpacity onPress={() => this.setState({pressStatus: true})}>
             <Image style={{marginLeft: 54, height: 18, width: 18, resizeMode: 'contain'}} source={add} />
@@ -126,11 +126,13 @@ const styles = StyleSheet.create({
 
   },
   textInput: {
-    height: window.height/3 * 1.65,
+    fontSize: 16,
+    height: window.height/3 * 1.5,
     fontFamily: 'System',
     fontWeight: '100' ,
     color: '#ffffff',
     backgroundColor: '#181818',
+    marginTop: 26,
     marginLeft: 16,
     marginRight: 8,
   },
@@ -141,8 +143,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',    
     fontSize: 16,
     backgroundColor: '#181818',
-    color: '#ffffff',
-    borderColor: '#ffffff',
+    color: '#2BDE73',
+    borderColor: '#2BDE73',
     borderWidth: 1,
     marginLeft: 8,
     marginRight: 16,
