@@ -61,16 +61,12 @@ export default class DreamList extends Component {
   }
 
   renderRow = (data) => {
-    let red = '#D63B46';
-    var swipeDelete = [{
-    text: 'Delete',
-    onPress: () => {this.deleteDream(data.key)}
-    }];
+    var swipeToDelete = [{text: 'Delete', onPress: () => {this.deleteDream(data.key)}}];
     let shortenedText = data.text.substring(0,9) + '...'
 
     return (
       <Swipeout 
-        right={swipeDelete}
+        right={swipeToDelete}
         autoClose={true}>
       <View style={ styles.dreamContainer }>
         <Text style={ styles.dreamText }>{ shortenedText }</Text>
@@ -88,13 +84,12 @@ export default class DreamList extends Component {
       loading = (<View>
         <Text style={styles.loadingText}>Gathering your dreams...</Text><ActivityIndicator
           animating={this.state.loading}
-          style={ styles.loading }
-        />
-      </View>);
+          style={ styles.loading }/>
+        </View>
+      );
     }
+
     return (
-      
-  
       <View style={ styles.container }>
         {loading}
         <ListView
@@ -124,8 +119,8 @@ const styles = StyleSheet.create({
   dreamContainer: {
     padding: 16,
     backgroundColor: '#181818',
-    borderBottomWidth: 1,
-    borderBottomColor: '#CDCDCD',
+    borderBottomWidth: .5,
+    borderBottomColor: 'rgba(205, 205, 205, 0.2)',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },

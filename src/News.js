@@ -55,7 +55,7 @@ var styles = StyleSheet.create({
     fontFamily: 'System',
     fontWeight: '300',
     marginTop: 12,
-    marginRight: 40,
+    marginLeft: 8,
     color: '#EBE9DC',
     fontSize: 24,
   },

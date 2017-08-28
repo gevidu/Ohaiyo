@@ -75,7 +75,7 @@ export default class AddDream extends Component {
     let dreamDisplay = this.state.pressStatus 
     ? (
         <View style={{ flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: '#ffffff', paddingBottom: 8, marginTop: 4}}>
-          <TouchableOpacity style={{zIndex: 2, position: 'absolute', marginLeft: 340, marginTop: 10}} onPress={() => this.setState({pressStatus: false})}>
+          <TouchableOpacity style={{zIndex: 2, position: 'absolute', marginLeft: 342, marginTop: 10}} onPress={() => this.setState({pressStatus: false})}>
             <Image style={{height: 18, width: 18, resizeMode: 'contain', transform: [{ rotate: '45deg'}]}} source={add} />
           </TouchableOpacity>
           <TextInput
