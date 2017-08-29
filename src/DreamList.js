@@ -10,11 +10,13 @@ import {
   ActivityIndicator,
   Switch,
   TouchableOpacity,
+  TouchableHighlight,
   TouchableWithoutFeedback,
   Image,
   Dimensions
 } from 'react-native';
 const firebase = require("firebase");
+const DreamEdit = require('./DreamEdit')
 const window = Dimensions.get('window');
 let add = require('./img/add.png');
 
@@ -60,7 +62,7 @@ export default class DreamList extends Component {
     firebase.database().ref('dreams/'+key).set(null);
   }
 
-  renderRow = (data) => {
+  renderRow(data){
     var swipeToDelete = [{text: 'Delete', onPress: () => {this.deleteDream(data.key)}}];
     let shortenedText = data.text.substring(0,9) + '...'
 
@@ -68,12 +70,14 @@ export default class DreamList extends Component {
       <Swipeout 
         right={swipeToDelete}
         autoClose={true}>
+      <TouchableHighlight onPress={() => console.log('row ', data.key, ' pressed')}>
       <View style={ styles.dreamContainer }>
         <Text style={ styles.dreamText }>{ shortenedText }</Text>
         <View style={{flexDirection:'row', alignItems: 'center'}}>
           <Text style={styles.dateText}> {data.date}</Text>
         </View>
       </View>
+    </TouchableHighlight>
     </Swipeout>
     );
   }
