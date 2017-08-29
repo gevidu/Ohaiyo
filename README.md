@@ -1,6 +1,6 @@
 
 # Ohaiyo
-##### Built on React Native with a [Firebase](https://firebase.google.com/) database and APIs from [Openweather](https://openweathermap.org/api), [News API](https://newsapi.org/), and [Google Maps](https://developers.google.com/maps/)
+##### Built on React Native with a [Firebase](https://firebase.google.com/) database and APIs from [OpenWeatherMap](https://openweathermap.org/api), [News API](https://newsapi.org/), and [Google Maps](https://developers.google.com/maps/)
 ___
 
 ![isometric mockup](https://user-images.githubusercontent.com/13547790/29838491-2e89f18a-8cb0-11e7-84f2-24c46976ef90.png)
@@ -12,9 +12,9 @@ ___
  * Weather widget 
  * Top news articles from BBC
 
-
+----
 ## Get it Running: 
-Before you start, you'll want to get API keys from Openweathermaps, Firebase, Google Maps and News API. Links to each are listed above.
+Before you start, you'll want to get API keys from OpenWeatherMap, Firebase, Google Maps and News API. Links to each are listed above.
 
 
 once you have your API keys, the project cloned and dependencies installed, create the files structure shown below.
@@ -28,7 +28,7 @@ once you have your API keys, the project cloned and dependencies installed, crea
 
 
 Then put the keys you received earlier in the format below within each pertaining file.
->module.export = 'abcdefg1234567'
+>module.export = 'abcdefg1234567';
 
  
 The project should now be able to run in the emulator or on your phone and thanks for looking!   
