@@ -1,6 +1,5 @@
 
-# Ohaiyo 
-#### A 'smart' alarm clock 
+# Ohaiyo - An Alarm App 
 ##### built on React Native with a Firebase database and APIs from [Openweather](https://openweathermap.org/api), [News API](https://newsapi.org/), and [Google Maps](https://developers.google.com/maps/)
 ___
 
@@ -13,23 +12,23 @@ ___
  * Weather widget 
  * Top news articles from BBC
 
+
 ## Get it Running: 
+Before you start, you'll want to get API keys from Openweathermaps, Firebase, Google Maps and News API. Links to each are listed above.
 
-Before you start you'll want to get API keys from Openweather, Firebase, and Newsapi
 
-
-once you have your API keys, the project cloned and npm install has been run, create the files structure shown below.
+once you have your API keys, the project cloned and dependencies installed, create the files structure shown below.
 
     src
     └─── api
-    │    │  configs.js (firebase credentials)
+    │    │  configs.js // your firebase credentials
     │    │  newsConfig.js
     │    │	trafficConfig.js
     │    │  weatherConfig.js
 
 
-Then put the keys you received in the format below within each pertaining file.
+Then put the keys you received earlier in the format below within each pertaining file.
 >module.export = 'abcdefg1234567'
 
  
-The project should now be able to run in the emulator or on your phone!   
+The project should now be able to run in the emulator or on your phone and thanks for looking!   
