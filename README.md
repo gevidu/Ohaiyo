@@ -1,6 +1,6 @@
 
-# Ohaiyo - An Alarm App 
-##### built on React Native with a Firebase database and APIs from [Openweather](https://openweathermap.org/api), [News API](https://newsapi.org/), and [Google Maps](https://developers.google.com/maps/)
+# Ohaiyo
+##### Built on React Native with a [Firebase](https://firebase.google.com/) database and APIs from [Openweather](https://openweathermap.org/api), [News API](https://newsapi.org/), and [Google Maps](https://developers.google.com/maps/)
 ___
 
 ![isometric mockup](https://user-images.githubusercontent.com/13547790/29838491-2e89f18a-8cb0-11e7-84f2-24c46976ef90.png)
