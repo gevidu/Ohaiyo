@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import DreamList from '../DreamList';
-import AddDream from '../AddDream';
-import DreamEdit from '../DreamEdit'
+import Dreams from '../Dreams'
 import {
   StyleSheet,
   View,
@@ -16,7 +14,7 @@ export class DreamTab extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <DreamEdit />
+        <Dreams />
       </View>
     );
   }

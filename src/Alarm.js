@@ -83,7 +83,7 @@ export class Alarm extends Component {
 	    		underlayColor='#dddddd' 
 	    		style={styles.times}
 	    		onPress={() => {this.alert(rowData)}}>
-	        	<Text style={{fontSize: 20, color: '#FFFAF1', textAlign: 'center', fontFamily: 'HelveticaNeue-Light'}} numberOfLines={1}>{rowData}</Text>
+	        	<Text style={styles.listTimes} numberOfLines={1}>{rowData}</Text>
 	    	</TouchableHighlight>
 	  );
 	}
@@ -95,7 +95,7 @@ export class Alarm extends Component {
 			`Set Alarm for ${rowData}?`,
 				[
 			    {text: 'Yes', onPress: () => this.timeChosen(rowData)},
-			    {text: 'Cancel', onPress: () => console.log('Action Canceled'), style: 'cancel'}
+			    {text: 'Cancel', onPress: () => console.log('action canceled'), style: 'cancel'}
 			  ]
 		)
 	}
@@ -119,7 +119,7 @@ export class Alarm extends Component {
 			 this.setState({millisecondsUntilWake: this.state.millisecondsUntilWake - 1000})
 			} else if (this.state.millisecondsUntilWake === 0) {
 					//sound to play when alarm goes off with error handling
-					let alarm = new Sound('waha.mp3', Sound.MAIN_BUNDLE, (error) => {
+					let alarm = new Sound('tone.mp3', Sound.MAIN_BUNDLE, (error) => {
 					  if (error) {
 					    console.log('error:', error);
 					  } else {
@@ -175,6 +175,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 4
+  },
+  listTimes: {
+  	fontSize: 20, 
+  	color: '#FFFAF1', 
+  	textAlign: 'center', 
+  	fontFamily: 'HelveticaNeue-Light'
   },
   times: {
 		flex: 1,

@@ -29,6 +29,7 @@
 		F17D38D91F4EC4DD008E3970 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
 		F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
 		F1D9728A1F4EC1190095D2C8 /* waha.mp3 in Sources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
+		F1E323D91F55EC3E00C7182C /* tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1E323D81F55EC3E00C7182C /* tone.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +258,7 @@
 		7F883318CD8C41C292F97931 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		F1D972881F4EC0E90095D2C8 /* waha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waha.mp3; sourceTree = "<group>"; };
+		F1E323D81F55EC3E00C7182C /* tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tone.mp3; sourceTree = "<group>"; };
 		F49D8BAA98304C9DB97C69D5 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -372,6 +374,7 @@
 		13B07FAE1A68108700A75B9A /* Ohaiyo */ = {
 			isa = PBXGroup;
 			children = (
+				F1E323D81F55EC3E00C7182C /* tone.mp3 */,
 				F1D972881F4EC0E90095D2C8 /* waha.mp3 */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -828,6 +831,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E323D91F55EC3E00C7182C /* tone.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */,

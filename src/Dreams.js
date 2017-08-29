@@ -5,21 +5,17 @@ import {
   StyleSheet,
   Text,
   View,
-  Platform,
   ListView,
   ActivityIndicator,
-  Switch,
   TextInput,
   TouchableOpacity,
   TouchableHighlight,
-  TouchableWithoutFeedback,
   Image,
-  Animated,
   Dimensions,
+  AlertIOS,
   Keyboard
 } from 'react-native';
 const firebase = require("firebase");
-const DreamEdit = require('./DreamEdit')
 const window = Dimensions.get('window');
 let add = require('./img/add.png');
 
@@ -34,7 +30,6 @@ export default class DreamList extends Component {
       placeholder: 'What did you dream about?',
       text: '',
       pressStatus: false,
-      flexHeight: new Animated.Value(.075),
       date: ''
     };
     this.dreamsRef = this.getRef().child('dreams');
@@ -66,72 +61,8 @@ export default class DreamList extends Component {
       this.listenForItems(this.dreamsRef);
   }
 
-  deleteDream(key){
-    firebase.database().ref('dreams/'+key).set(null);
-  }
-
-  onFocusEvent(){
-    // onFocus targets "add dream" tab for expanded text entry and animation effect
-    if (this.state.pressStatus == false) {
-      this.setState({pressStatus: true, placeholder: ''});
-      Animated.timing(
-        this.state.flexHeight,
-        {toValue: 1.375}
-      ).start();    
-    }
-  }
-
-  submit(){
-    //sends dream to firebase db, updates state, and triggers animation
-    if (this.state.dreamId){
-      var hopperRef = this.dreamsRef.child(this.state.dreamId);
-      hopperRef.update({
-        "text": this.state.text
-      });
-      this.setState({
-        placeholder: 'What did you dream about?',
-        text: '', 
-        date: '',
-        behavior: 'padding',
-        pressStatus: false,
-      });
-    }
-
-    if (this.state.text && this.state.dreamId == null) {
-      this.dreamsRef.push({
-        text: this.state.text,
-        date: new Date().toLocaleDateString()
-      });
-
-      this.setState({
-        placeholder: 'What did you dream about?',
-        text: '', 
-        date: '',
-        behavior: 'padding',
-        pressStatus: false,
-      });
-    
-      if (this.state.pressStatus == true) {
-        this.setState({pressStatus: false, placeholder: 'What did you dream about?'});
-        Animated.timing(
-          this.state.flexHeight,
-          {toValue: .075}
-        ).start();    
-      }
-    }
-  }
-
-  editDream(data){
-
-    this.setState({
-      text: data.text,
-      dreamId: data.key, 
-      pressStatus: true
-    })
-  }
-
   renderRow(data){
-    var swipeToDelete = [{text: 'Delete', onPress: () => {this.deleteDream(data.key)}}];
+    var swipeToDelete = [{text: 'Delete', onPress: () => {this.alert(data)}}];
     let shortenedText = data.text.substring(0,9) + '...'
 
     return (
@@ -150,6 +81,68 @@ export default class DreamList extends Component {
     );
   }
 
+  editDream(data){
+    this.setState({
+      text: data.text,
+      dreamId: data.key, 
+      pressStatus: true
+    })
+  }
+
+  deleteDream(key){
+    firebase.database().ref('dreams/'+key).set(null);
+  }
+
+  onFocusEvent(){
+    if (this.state.pressStatus == false) {
+      this.setState({pressStatus: true, placeholder: ''});
+    }
+  }
+
+  textInputStateUpdate() {
+     this.setState({
+        placeholder: 'What did you dream about?',
+        text: '', 
+        date: '',
+        behavior: 'padding',
+        pressStatus: false,
+      });
+  }
+
+  submit(){
+    //sends dream to firebase db, updates state, and triggers animation
+    if (this.state.dreamId){
+      var hopperRef = this.dreamsRef.child(this.state.dreamId);
+      hopperRef.update({
+        "text": this.state.text
+      });
+     this.textInputStateUpdate();
+    }
+
+    if (this.state.text && this.state.dreamId == null) {
+      this.dreamsRef.push({
+        text: this.state.text,
+        date: new Date().toLocaleDateString()
+      });
+      this.textInputStateUpdate();
+    
+      if (this.state.pressStatus == true) {
+        this.setState({pressStatus: false, placeholder: 'What did you dream about?'}); 
+      }
+    }
+  }
+
+  alert(data) {
+    AlertIOS.alert(
+      'Delete Dream',
+      `Do you want to remove this?`,
+        [
+          {text: 'Yes', onPress: () => this.deleteDream(data.key)},
+          {text: 'Cancel', onPress: () => console.log('Action Canceled'), style: 'cancel'}
+        ]
+    )
+  }
+
   render() {
     var loading;
     if(this.state.loading){
@@ -161,14 +154,12 @@ export default class DreamList extends Component {
       );
     }
 
-    let dreamDisplay = this.state.pressStatus 
-    ? (
-        <View style={{ flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: '#ffffff', paddingBottom: 8, marginTop: 4}}>
-          <TouchableOpacity style={{zIndex: 2, position: 'absolute', marginLeft: 342, marginTop: 10}} onPress={() => this.setState({pressStatus: false})}>
-            <Image style={{height: 18, width: 18, resizeMode: 'contain', transform: [{ rotate: '45deg'}]}} source={add} />
+    let dreamDisplay = this.state.pressStatus ? (
+        <View style={styles.inputView}>
+          <TouchableOpacity style={styles.cancelAdd} onPress={() => this.setState({pressStatus: false, text: ''})}>
+            <Image style={styles.cancelImage} source={add} />
           </TouchableOpacity>
           <TextInput
-          // onFocus={this.onFocusEvent.bind(this)}
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           placeholder={this.state.placeholder}
@@ -181,10 +172,10 @@ export default class DreamList extends Component {
           </TouchableOpacity>
         </View>
       ) : (
-        <View style={{flexDirection: 'row', justifyContent: 'flex-end', borderBottomWidth: 1, borderBottomColor: '#2BDE73', padding: 15}}>
-          <Text style={{color: '#ffffff', fontFamily: 'System', fontSize: 14, fontWeight: '600'}}> WHAT DID YOU DREAM ABOUT?</Text>
+        <View style={styles.dreamHeader}>
+          <Text style={styles.headerText}> WHAT DID YOU DREAM ABOUT?</Text>
           <TouchableOpacity onPress={() => this.setState({pressStatus: true})}>
-            <Image style={{marginLeft: 54, height: 18, width: 18, resizeMode: 'contain'}} source={add} />
+            <Image style={styles.imageAdd} source={add} />
           </TouchableOpacity>
         </View>  
       )
@@ -209,6 +200,44 @@ export default class DreamList extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#181818'
+  },
+  dreamHeader: {
+    flexDirection: 'row', 
+    justifyContent: 'flex-end', 
+    borderBottomWidth: 1, 
+    borderBottomColor: '#2BDE73', 
+    padding: 15
+  },
+  headerText: {
+    color: '#ffffff', 
+    fontFamily: 'System', 
+    fontSize: 14, 
+    fontWeight: '600'
+  },
+  imputView: {
+    flexDirection: 'column', 
+    borderBottomWidth: 1, 
+    borderBottomColor: '#ffffff', 
+    paddingBottom: 8, 
+    marginTop: 4
+  },
+  imageAdd: {
+    marginLeft: 54, 
+    height: 18, 
+    width: 18, 
+    resizeMode: 'contain'
+  },
+  cancelAdd: {
+    zIndex: 2, 
+    position: 'absolute', 
+    marginLeft: 342, 
+    marginTop: 10
+  },
+  cancelImage: {
+    height: 18, 
+    width: 18, 
+    resizeMode: 'contain', 
+    transform: [{ rotate: '45deg'}]
   },
   dreamList: {
     height: window.height,
