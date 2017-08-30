@@ -11,9 +11,11 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  Dimensions,
   View
 } from 'react-native';
 const ScrollableTabView = require('react-native-scrollable-tab-view');
+const window = Dimensions.get('window');3
 
 export class Main extends Component {
   constructor(props) {
@@ -36,8 +38,8 @@ export class Main extends Component {
           tabBarUnderlineStyle={{backgroundColor: '#2BDE73'} }
           tabBarTextStyle={{fontFamily: 'System'}}
       		initialPage={1}>
-          <Alarm tab = '1' tabLabel='Alarm'/>
-          <View tab = '2' style={styles.container} tabLabel = 'Home' >
+          <Alarm tab='1' tabLabel='Alarm'/>
+          <View tab='2' style={styles.container} tabLabel='Home' >
             <CurrentTime />
             <View style={styles.dateWeatherView}>
               <DateComponent />
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#181818',
   },
   dateWeatherView: {
+    width: window.width,
   	flexDirection: 'row',
   }
 });

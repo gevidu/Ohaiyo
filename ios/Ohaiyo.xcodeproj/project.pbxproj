@@ -26,9 +26,6 @@
 		409DC2C94E214C7D8872BFDD /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC5283277A74B8E80E7D1A4 /* libRNSound.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		F17D38D91F4EC4DD008E3970 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
-		F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
-		F1D9728A1F4EC1190095D2C8 /* waha.mp3 in Sources */ = {isa = PBXBuildFile; fileRef = F1D972881F4EC0E90095D2C8 /* waha.mp3 */; };
 		F1E323D91F55EC3E00C7182C /* tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1E323D81F55EC3E00C7182C /* tone.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -257,7 +254,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7F883318CD8C41C292F97931 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		F1D972881F4EC0E90095D2C8 /* waha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waha.mp3; sourceTree = "<group>"; };
 		F1E323D81F55EC3E00C7182C /* tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tone.mp3; sourceTree = "<group>"; };
 		F49D8BAA98304C9DB97C69D5 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -375,7 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				F1E323D81F55EC3E00C7182C /* tone.mp3 */,
-				F1D972881F4EC0E90095D2C8 /* waha.mp3 */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -823,7 +818,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F17D38D91F4EC4DD008E3970 /* waha.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,7 +828,6 @@
 				F1E323D91F55EC3E00C7182C /* tone.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				F1D972891F4EC0E90095D2C8 /* waha.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,7 +855,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1D9728A1F4EC1190095D2C8 /* waha.mp3 in Sources */,
 				00E356F31AD99517003FC87E /* OhaiyoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

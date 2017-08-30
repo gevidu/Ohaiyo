@@ -9,8 +9,8 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-const _appID = require('./api/weatherConfig')
-const icon = require('./img/weatherIcons/weatherIcons')
+const _appID = require('./api/weatherConfig');
+const icon = require('./img/weatherIcons/weatherIcons');
 
 
 export class Weather extends Component {

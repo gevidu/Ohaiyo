@@ -11,18 +11,18 @@ import {
   TextInput,
   Linking
 } from 'react-native';
-const _trafficKey = require('./api/trafficConfig')
+const _trafficKey = require('./api/trafficConfig');
 
 export class Traffic extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			destination: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      destination: '',
       city: '',
       trafficSearch: '',
-			destinationSet: true
-		}
-	}
+      destinationSet: true
+    }
+  }
 
 componentWillMount() {
     navigator.geolocation.getCurrentPosition(
@@ -31,16 +31,16 @@ componentWillMount() {
         let lat = JSON.stringify(position.coords.latitude);
         this.setState({lat});
         //gives longitude variable definition from phone's possition
-				let lon = JSON.stringify(position.coords.longitude);
+        let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates traffic search query from coords
-    		let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=Portland+OR&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
-    		this.setState({trafficSearch});
-				//makes traffic api call
-		    fetch(this.state.trafficSearch, {
-		    	'headers': {'Accept': 'application/json'}
-		    })
-				.then(res  => res.json())
+        let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=Portland+OR&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
+        this.setState({trafficSearch});
+        //makes traffic api call
+        fetch(this.state.trafficSearch, {
+          'headers': {'Accept': 'application/json'}
+        })
+        .then(res  => res.json())
         .then(res => this.setState({
           distance: res.rows[0].elements[0].distance.text,
           duration: res.rows[0].elements[0].duration.text,
@@ -65,7 +65,7 @@ componentWillMount() {
         </View> )
 
     return (
-			<View>
+      <View>
           {trafficLoad}
       </View>
     );

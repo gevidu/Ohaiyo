@@ -12,7 +12,7 @@ ___
  * Weather widget 
  * Top news articles from BBC
 
-----
+
 ## Get it Running: 
 Before you start, you'll want to get API keys from OpenWeatherMap, Firebase, Google Maps and News API. Links to each are listed above.
 

@@ -116,6 +116,9 @@ export default class DreamList extends Component {
       hopperRef.update({
         "text": this.state.text
       });
+      if (this.state.text == '') {
+          firebase.database().ref('dreams/'+this.state.dreamId).set(null);
+      }
      this.textInputStateUpdate();
     }
 
@@ -289,7 +292,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 10,
     backgroundColor: '#181818'
-
   },
   textInput: {
     fontSize: 16,

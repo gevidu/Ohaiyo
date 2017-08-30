@@ -75,7 +75,7 @@ export class Alarm extends Component {
 		this.setState({
 			dataSource: this.state.dataSource.cloneWithRows(wakeupArray)
 		});
-}
+	}
 
 	renderRow(rowData, sectionID, rowID) {
 	 	return (
