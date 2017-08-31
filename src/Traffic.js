@@ -7,6 +7,8 @@ import {
   ActivityIndicator,
   Image,
   TouchableOpacity,
+  TouchableHighlight,
+  TextInput,
   Linking
 } from 'react-native';
 const _trafficKey = require('./api/trafficConfig');
@@ -18,7 +20,7 @@ export class Traffic extends Component {
       destination: '',
       city: '',
       trafficSearch: '',
-      destinationSet: true
+      destinationSet: false
     }
   }
 
@@ -32,7 +34,7 @@ componentWillMount() {
         let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates traffic search query from coords
-        let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations=Portland+OR&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
+        let trafficSearch = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.state.lat + ',' + this.state.lon + '&destinations='+ this.state.destination +'&traffic_model=best_guess&departure_time=now&units=imperial&key=' + _trafficKey
         this.setState({trafficSearch});
         //makes traffic api call
         fetch(this.state.trafficSearch, {
@@ -51,21 +53,51 @@ componentWillMount() {
     );
   }
 
+  destinationSubmit(){
+    let destination = this.state.text.replace(/\s/g, "+");
+    this.setState({
+      destination: destination,
+      destinationSet: true
+    })
+    this.componentWillMount();
+  }
+
+
   render() {
     //ternary operator for traffic view state
-    let trafficLoad = this.state.isLoading ? 
-      ( <ActivityIndicator size='large'/> ) :
-      ( <View style={styles.container}>
+    // let trafficLoad = this.state.isLoading ? 
+    //   ( <ActivityIndicator size='large'/> ) :
+    //   ( {trafficView} )
+
+    let trafficView = this.state.destinationSet ? 
+    (
+      <View style={styles.container}>
             <Text style={styles.title}> Time to Destination: </Text>
-            <TouchableOpacity onPress={() => Linking.openURL('https://maps.google.com/maps/dir/' + this.state.lat + ',' + this.state.lon + '/Portland+OR')}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://maps.google.com/maps/dir/' + this.state.lat + ',' + this.state.lon + '/' + this.state.destination)}>
               <Text style={styles.duration}> {this.state.duration} </Text>
             </TouchableOpacity>
             <Text style={styles.instructions}> click to open in maps </Text>
-        </View> )
+        </View> 
+      ) : (
+        <View style={{marginTop: 88, flexDirection: 'row', alignItems: 'center', width: 300, height: 32}}>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={(text) => this.setState({text})}
+            placeholder={'Enter Destination'}
+
+            placeholderTextColor='rgba(255,255,255, .5)'
+            value={this.state.text}/>
+          <TouchableHighlight 
+            onPress={() => {this.destinationSubmit()}}>
+            <Text style={styles.button}>ADD</Text> 
+          </TouchableHighlight>
+        </View>
+    )
+
 
     return (
       <View>
-          {trafficLoad}
+          {trafficView}
       </View>
     );
   }
@@ -77,6 +109,28 @@ var styles = StyleSheet.create({
     fontWeight: '200',
     fontSize: 22,
     color: "#EBE9DC"
+  },
+  textInput: {
+    paddingLeft: 8,
+    borderColor: '#EBE9DC',
+    borderWidth: .5,
+    width: 240,
+    fontSize: 14,
+    fontFamily: 'System',
+    fontWeight: '100' ,
+    color: '#ffffff',
+  }, 
+  button: {
+    fontSize: 14,
+    fontWeight: '200',
+    backgroundColor: '#181818',
+    color: '#EBE9DC',
+    borderColor: '#EBE9DC',
+    marginLeft: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+    borderWidth: .5,
+    borderRadius: 4
   },
   instructions: {
     fontFamily: 'System',
