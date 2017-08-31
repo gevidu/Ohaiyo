@@ -26,17 +26,11 @@ export class Alarm extends Component {
 		 }
 	}
 
-	componentDidMount() {
-		this.setState({
-			dataSource: this.state.dataSource.cloneWithRows(wakeupArray)
-		})
-	}
-
 	sleepStart(){
 		let hours = new Date().getHours();
 		let minutes = new Date().getMinutes();
 		let sleepCycles = 0;
-				wakeupArray = [];
+		let wakeupArray = [];
 
 		// takes ~14 minutes to fall asleep
     minutes += 14;
@@ -44,7 +38,7 @@ export class Alarm extends Component {
 		minutes %= 60;
 		hours %= 12;
     
-    // calculating sleep cycles, each 90 minutes and ideally happens 6 times
+    // calculating sleep cycles, each 90 minutes and ideally happening 6 times
     while (sleepCycles < 6) {
     	sleepCycles++
       hours += 1;
@@ -101,22 +95,25 @@ export class Alarm extends Component {
 
 	timeChosen(rowData){
 		let wakeTime = rowData.split(':')
+    console.log(wakeTime)
 		let hour = new Date().getHours();
 		let minute = new Date().getMinutes();		
 		let startTime = new Date(0, 0, 0, hour, minute, 0);
-    let endTime = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
-    let millsTilWake = endTime.getTime() - startTime.getTime();
+    let endTime = new Date(0, 0, 0, wakeTime[0], wakeTime[1], 0);
+    let millsUntilWake = endTime.getTime() - startTime.getTime();
+    let secondsUntilWake = millsUntilWake / 1000;
     this.setState({
 			timePicked: true,
 			setTime: rowData,
-			millisecondsUntilWake: millsTilWake
+			secondsUntilWake: secondsUntilWake
 		})
 
-    //interval to remove a 1000 milisconds every second and update the state
+    //interval to remove a five seconds every five second and update the state or trigger alarm 
 		setInterval(() => { 
-			if (this.state.millisecondsUntilWake > 0 && this.state.timePicked === true) {
-			 this.setState({millisecondsUntilWake: this.state.millisecondsUntilWake - 1000})
-			} else if (this.state.millisecondsUntilWake === 0) {
+			if (this.state.secondsUntilWake > 0 && this.state.timePicked === true) {
+			 this.setState({secondsUntilWake: this.state.secondsUntilWake - 5})
+			} 
+			if (this.state.secondsUntilWake === 0) {
 					//sound to play when alarm goes off with error handling
 					let alarm = new Sound('tone.mp3', Sound.MAIN_BUNDLE, (error) => {
 					  if (error) {
@@ -126,7 +123,7 @@ export class Alarm extends Component {
 					  	}
 					});
 				}
-		}, 1000);
+		}, 5000);
 	}
 
 	render(){
