@@ -17,7 +17,7 @@ ___
 Before you start, you'll want to get API keys from OpenWeatherMap, Firebase, Google Maps and News API. Links to each are listed above.
 
 
-once you have your API keys, the project cloned and dependencies installed, create the files structure shown below.
+Once you have your API keys, the project cloned and dependencies installed, create the file structure shown below.
 
     src
     └─── api
@@ -28,7 +28,6 @@ once you have your API keys, the project cloned and dependencies installed, crea
 
 
 Then put the keys you received earlier in the format below within each pertaining file.
->module.export = 'abcdefg1234567';
+>module.export = 'abcdefg1234567'; 
 
- 
-The project should now be able to run in the emulator or on your phone and thanks for looking!   
+The project should now be able to run in the emulator or on your phone. Thanks for looking!   
