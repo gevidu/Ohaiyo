@@ -87,7 +87,7 @@ export class Alarm extends Component {
 	  );
 	}
 
-	//popup notification to confirm sleep time
+	//popup to confirm sleep time
 	alert(rowData) {
 		AlertIOS.alert(
 			'Wake Up Time',
