@@ -15,10 +15,9 @@ import {
   AlertIOS,
   Keyboard
 } from 'react-native';
-const firebase = require("firebase");
+const _firebase = require("firebase");
 const window = Dimensions.get('window');
-let add = require('./img/add.png');
-
+const add = require('./img/add.png');
 
 export default class DreamList extends Component {
   constructor(props) {
@@ -35,11 +34,11 @@ export default class DreamList extends Component {
     this.dreamsRef = this.getRef().child('dreams');
   }
   
-  //Connects to firebase and listen gathers items in database
   getRef() {
-    return firebase.database().ref();
+    return _firebase.database().ref();
   }
 
+  //Connects to firebase and gathers items in database
   listenForItems(dreamsRef) {
     dreamsRef.on('value', (snap) => {
       var items = [];
@@ -90,7 +89,7 @@ export default class DreamList extends Component {
   }
 
   deleteDream(key){
-    firebase.database().ref('dreams/'+key).set(null);
+    _firebase.database().ref('dreams/'+key).set(null);
   }
 
   onFocusEvent(){
@@ -99,6 +98,7 @@ export default class DreamList extends Component {
     }
   }
 
+  // generic state update that is often repeated
   textInputStateUpdate() {
      this.setState({
         placeholder: 'What did you dream about?',
@@ -109,19 +109,21 @@ export default class DreamList extends Component {
       });
   }
 
+  //sends dream to firebase db and updates state
   submit(){
-    //sends dream to firebase db, updates state, and triggers animation
+    //checks to see if you are editing an existing entry
     if (this.state.dreamId){
       var hopperRef = this.dreamsRef.child(this.state.dreamId);
       hopperRef.update({
         "text": this.state.text
       });
       if (this.state.text == '') {
-          firebase.database().ref('dreams/'+this.state.dreamId).set(null);
+          _firebase.database().ref('dreams/'+this.state.dreamId).set(null);
       }
      this.textInputStateUpdate();
     }
 
+    //new entry to database
     if (this.state.text && this.state.dreamId == null) {
       this.dreamsRef.push({
         text: this.state.text,
@@ -135,6 +137,7 @@ export default class DreamList extends Component {
     }
   }
 
+  //confirm delete of entries
   alert(data) {
     AlertIOS.alert(
       'Delete Dream',
@@ -147,6 +150,7 @@ export default class DreamList extends Component {
   }
 
   render() {
+    // display of activity for user while connecting to database
     var loading;
     if(this.state.loading){
       loading = (<View>
@@ -157,6 +161,7 @@ export default class DreamList extends Component {
       );
     }
 
+    // terinary operator for views depending on state
     let dreamDisplay = this.state.pressStatus ? (
         <View style={styles.inputView}>
           <TouchableOpacity style={styles.cancelAdd} onPress={() => this.setState({pressStatus: false, text: ''})}>
@@ -234,7 +239,7 @@ const styles = StyleSheet.create({
     zIndex: 2, 
     position: 'absolute', 
     marginLeft: 342, 
-    marginTop: 10
+    marginTop: 14
   },
   cancelImage: {
     height: 18, 

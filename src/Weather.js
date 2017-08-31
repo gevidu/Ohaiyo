@@ -5,11 +5,9 @@ import {
   Text,
   View,
   ActivityIndicator,
-  DeviceEventEmitter,
-  Image,
-  TouchableOpacity
+  Image
 } from 'react-native';
-const _appID = require('./api/weatherConfig');
+const _weatherKey = require('./api/weatherConfig');
 const icon = require('./img/weatherIcons/weatherIcons');
 
 
@@ -36,7 +34,7 @@ componentDidMount() {
 				let lon = JSON.stringify(position.coords.longitude);
         this.setState({lon});
         // Creates weather search query from coords
-    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid='+ _appID;
+    		let weatherSearch = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=imperial&appid='+ _weatherKey;
     		this.setState({weatherSearch});
 				//makes weather api call
 		    fetch(this.state.weatherSearch, {
@@ -57,6 +55,9 @@ componentDidMount() {
 
   render() {
     let skyCons = this.state.skyConditions;
+    // Images in React Native cannot be dynamically changed usually
+    // Created alook up table after 'requiring' all images in another file 
+    // Invokes the proper weather's function to return an image under each matching name
     let imageLookupTable = {
       "Haze": () => {
         return icon.haze;

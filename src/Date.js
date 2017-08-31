@@ -63,6 +63,7 @@ export class DateComponent extends Component {
   }
 
   render() {
+
     return (
       <View style={styles.container}>
         <Text style={styles.currentTime}> {this.state.day}, </Text>

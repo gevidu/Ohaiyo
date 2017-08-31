@@ -5,10 +5,8 @@ import {
   Text,
   View,
   ActivityIndicator,
-  DeviceEventEmitter,
   Image,
   TouchableOpacity,
-  TextInput,
   Linking
 } from 'react-native';
 const _trafficKey = require('./api/trafficConfig');
@@ -54,6 +52,7 @@ componentWillMount() {
   }
 
   render() {
+    //ternary operator for traffic view state
     let trafficLoad = this.state.isLoading ? 
       ( <ActivityIndicator size='large'/> ) :
       ( <View style={styles.container}>

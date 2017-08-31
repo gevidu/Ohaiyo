@@ -21,7 +21,6 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locked: true,
     }
   }
 
@@ -30,7 +29,7 @@ export class Main extends Component {
     	<View style={styles.timeContainer}>
       	<ScrollableTabView 
           tabBarPosition = 'bottom'
-          locked = {this.state.locked}
+          locked = {true}
       		style={styles.tabView} 
           prerenderingSiblingsNumber={Infinity}
       		tabBarActiveTextColor={'#2BDE73'} 

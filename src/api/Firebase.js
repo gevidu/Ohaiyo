@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import Dreams from '../Dreams'
-import {
-  StyleSheet,
-  View,
-  Image
-} from 'react-native';
-
+import { View } from 'react-native';
 const firebase = require('firebase');
 const configs = require('./configs');
+
 firebase.initializeApp(configs);
 
 export class DreamTab extends Component {

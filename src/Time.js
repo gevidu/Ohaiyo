@@ -14,7 +14,7 @@ export class CurrentTime extends Component {
     };
   }
 
-// half a second intervals to make sure it is in sync with true time as possible
+  //half a second intervals to make sure app time is in sync with true time as much as possible
   componentDidMount() {
     setInterval(() => this.updateTime(), 500);
   }
