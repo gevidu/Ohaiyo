@@ -32,7 +32,7 @@ export class Alarm extends Component {
 		let wakeupArray = [];
 
 		// takes ~14 minutes to fall asleep
-    minutes += 14;
+		minutes += 14;
 		hours += minutes >= 60;
 		minutes %= 60;
 		hours %= 12;
@@ -46,6 +46,7 @@ export class Alarm extends Component {
 			minutes %= 60;
 			hours %= 12;
 
+			//adds zero infront of single digit minutes
 			if (minutes < 10) {
 				minutes = ('0' + minutes).slice(-2);
 			};
@@ -55,10 +56,9 @@ export class Alarm extends Component {
 			if (hours == 0) {
 				hours = 12;
 			};
-			
 			wakeupArray.push(hours + ':' + minutes);
 
-			//adds zero infront of single digit minutes
+			//converts minutes that are displayed with a '0' infront of them back to a number
 			if (typeof minutes === 'string') {
 				minutes = Number(minutes.substr(1));
     	};
@@ -111,7 +111,7 @@ export class Alarm extends Component {
 			secondsUntilWake: secondsUntilWake
 		})
 
-    //interval to remove a five seconds every five second and update the state or trigger alarm 
+    //interval to reduce time remaining and update state or trigger the alarm 
 		setInterval(() => { 
 			if (this.state.secondsUntilWake > 0 && this.state.timePicked === true) {
 			 this.setState({secondsUntilWake: this.state.secondsUntilWake - 5})
@@ -154,7 +154,7 @@ export class Alarm extends Component {
 			<View>
 				{alarmSettings}	
 			</View>
-			)
+		)
 	}
 }
 
