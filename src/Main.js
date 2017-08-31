@@ -36,7 +36,7 @@ export class Main extends Component {
           tabBarInactiveTextColor={'#68757D'}
           tabBarUnderlineStyle={{backgroundColor: '#2BDE73'} }
           tabBarTextStyle={{fontFamily: 'System'}}
-      		initialPage={1}>
+      		initialPage={0}>
           <Alarm tab='1' tabLabel='Alarm'/>
           <View tab='2' style={styles.container} tabLabel='Home' >
             <CurrentTime />

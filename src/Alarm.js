@@ -5,7 +5,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TouchableHighlight,
   AlertIOS,
   Alert,
   ListView,
@@ -72,12 +71,12 @@ export class Alarm extends Component {
 
 	renderRow(rowData, sectionID, rowID) {
 	 	return (
-	    	<TouchableHighlight 
+	    	<TouchableOpacity 
 	    		underlayColor='#dddddd' 
 	    		style={styles.times}
 	    		onPress={() => {this.alert(rowData)}}>
 	        	<Text style={styles.listTimes} numberOfLines={1}>{rowData}</Text>
-	    	</TouchableHighlight>
+	    	</TouchableOpacity>
 	  );
 	}
 
@@ -141,7 +140,7 @@ export class Alarm extends Component {
       	  </View> ) 
     :  (  <View style={styles.container}>
 				 		<TouchableOpacity onPress={() => {this.sleepStart()}} >
-							<Text style={styles.button} >Get Sleep Times</Text>
+							<Text style={styles.button} >GET ALARM TIMES</Text>
 						</TouchableOpacity>
 						<ListView
 						scrollEnabled={false}
@@ -161,7 +160,8 @@ export class Alarm extends Component {
 
 const styles = StyleSheet.create({
 	button: {
-		fontFamily: 'HelveticaNeue-Light',
+		fontFamily: 'System',
+		fontWeight: '600',
 		marginTop: 10,
     textAlign: 'center',
     fontSize: 16,
@@ -169,12 +169,13 @@ const styles = StyleSheet.create({
     color: '#2BDE73',
     borderColor: '#2BDE73',
     borderWidth: 1,
-    marginLeft: 8,
+    marginLeft: 87,
+    paddingTop: 92,
     marginBottom: 20,
     marginRight: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 4
+    height: 200,
+    width: 200,
+    borderRadius: 200/2
   },
   listTimes: {
   	fontSize: 20, 

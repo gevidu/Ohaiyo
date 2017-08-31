@@ -18,8 +18,8 @@ export class Traffic extends Component {
     super(props);
     this.state = {
       destination: '',
-      city: '',
       trafficSearch: '',
+      text: '',
       destinationSet: false
     }
   }
@@ -54,21 +54,20 @@ componentWillMount() {
   }
 
   destinationSubmit(){
-    let destination = this.state.text.replace(/\s/g, "+");
-    this.setState({
-      destination: destination,
-      destinationSet: true
-    })
-    this.componentWillMount();
-  }
-
-
+    // Check the search isn't empty    
+    //regex to replace spaces with pluses for maps lookup
+    if (this.state.text.length > 5) {
+        this.setState({
+          destination: this.state.text.replace(/\s/g, "+"),
+          destinationSet: true
+        })
+        this.componentWillMount();
+      } 
+      return;
+    }
+    
   render() {
     //ternary operator for traffic view state
-    // let trafficLoad = this.state.isLoading ? 
-    //   ( <ActivityIndicator size='large'/> ) :
-    //   ( {trafficView} )
-
     let trafficView = this.state.destinationSet ? 
     (
       <View style={styles.container}>
@@ -93,7 +92,6 @@ componentWillMount() {
           </TouchableHighlight>
         </View>
     )
-
 
     return (
       <View>
