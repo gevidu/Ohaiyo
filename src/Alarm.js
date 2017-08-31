@@ -101,6 +101,10 @@ export class Alarm extends Component {
 		let startTime = new Date(0, 0, 0, hour, minute, 0);
     let endTime = new Date(0, 0, 0, wakeTime[0], wakeTime[1], 0);
     let millsUntilWake = endTime.getTime() - startTime.getTime();
+    if (millsUntilWake < 0) {
+		    endTime = new Date(0, 0, 1, wakeTime[0], wakeTime[1], 0);
+		    millsUntilWake = endTime.getTime() - startTime.getTime();
+    }
     let secondsUntilWake = millsUntilWake / 1000;
     this.setState({
 			timePicked: true,
