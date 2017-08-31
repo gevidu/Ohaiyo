@@ -9,7 +9,7 @@ ___
  * Alarm based on REM cycles (select a time nearest to when you'd like to wake)
  * Dream notepad to record what you remember as quickly as possible
  * Traffic time to work with map integration 
- * Weather widget 
+ * Weather widget with dynamic images
  * Top news articles from BBC
 
 
