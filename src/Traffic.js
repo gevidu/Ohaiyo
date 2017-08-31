@@ -79,7 +79,7 @@ componentWillMount() {
             <Text style={styles.instructions}> click to open in maps </Text>
         </View> 
       ) : (
-        <View style={{marginTop: 88, flexDirection: 'row', alignItems: 'center', width: 300, height: 32}}>
+        <View style={styles.destinationInputView}>
           <TextInput
             style={styles.textInput}
             onChangeText={(text) => this.setState({text})}
@@ -109,6 +109,13 @@ var styles = StyleSheet.create({
     fontWeight: '200',
     fontSize: 22,
     color: "#EBE9DC"
+  },
+  destinationInputView: {
+    marginTop: 88, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    width: 300, 
+    height: 32
   },
   textInput: {
     paddingLeft: 8,
